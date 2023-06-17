@@ -1,15 +1,17 @@
 import Nav from "../Nav/Nav";
+import Proximamente from "./Proximamente/Proximamente";
 
-import Slider  from "./Slider/Slider";
+import Slider from "./Slider/Slider";
 
 function Main() {
   return (
-    <>
-      <Nav></Nav>
-      <div className="w-[86%] relative top-[70px] flex justify-center">
+    <main className=" w-[100%] relative top-[70px] flex justify-end flex-col">
+      <div className="relative w-[100%] pl-48">
+        <Nav></Nav>
         <Slider></Slider>
+        <Proximamente></Proximamente>
       </div>
-    </>
+    </main>
   );
 }
 
