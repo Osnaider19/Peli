@@ -1,4 +1,5 @@
 import Nav from "../Nav/Nav";
+import EnCantera from "./EnCantera/EnCantera";
 import Proximamente from "./Proximamente/Proximamente";
 
 import Slider from "./Slider/Slider";
@@ -10,6 +11,7 @@ function Main() {
         <Nav></Nav>
         <Slider></Slider>
         <Proximamente></Proximamente>
+        <EnCantera></EnCantera>
       </div>
     </main>
   );

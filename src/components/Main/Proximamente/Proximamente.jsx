@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { AiFillStar } from "react-icons/ai";
-import { MdArrowForwardIos, MdArrowBackIosNew } from "react-icons/md";
-import { ScrollLeft, ScrollRinght } from './FSlider';
+import ButtonSlider from "./ButtonSlider";
 
 function Proximamente() {
   const API_KEY = "b62c5015964d4fcc4805e0ce64dfd3c4";
@@ -26,21 +25,9 @@ function Proximamente() {
   }, []);
   return (
     <div className="relative w-[95%] text-white m-auto container-slider-proximamente">
-      <h1 className="text-xl py-2">Próximas Películas</h1>
-      <div className="absolute left-0 h-[250px] flex items-center bg-black/40 z-50 opacity-0 pointer-events-none button-proximamente transition-all duration-300">
-          <i className="text-4xl cursor-pointer button-left" onClick={ScrollRinght} >
-            <MdArrowBackIosNew />
-          </i>
-        </div>
-        <div className="absolute right-0 h-[250px] flex items-center bg-black/40 z-50 opacity-0 pointer-events-none button-proximamente">
-          <i className="text-4xl cursor-pointer button-ringht" onClick={ScrollLeft}>
-            <MdArrowForwardIos />
-          </i>
-        </div>
+      <h1 className="text-xl py-2">Próximas Extrenos</h1>
+      <ButtonSlider></ButtonSlider>
       <ul className="flex gap-2 relative overflow-hidden w-full slider-proximamente scroll-smooth ">
-
-        
-        
         {movies.map((movie) => (
           <a href={movie.id} key={movie.id}>
             <li className="overflow-hidden rounded-lg min-w-[200px] ">
