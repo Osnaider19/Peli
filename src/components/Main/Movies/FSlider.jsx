@@ -3,18 +3,22 @@ export function ScrollLeft(e) {
   const $buttonLeft = document.querySelectorAll(".button-left");
   const $buttonRight = document.querySelectorAll(".button-ringht");
 
-  $Slider[0].scrollLeft += 410;
-  console.log($Slider.scrollLeft);
-  console.log($Slider.length);
-  console.log($Slider);
+
+  for (let i = 0; i < $Slider.length; i++) {
+    if ($Slider[i] && $buttonLeft[i]) {
+      $Slider[i].scrollLeft += 410;
+    }
+  }
 }
 
 export function ScrollRight(e) {
   const $Slider = document.querySelectorAll(".container-slider-movie");
   const $buttonLeft = document.querySelectorAll(".button-left");
   const $buttonRight = document.querySelectorAll(".button-ringht");
-
-  $Slider[0].scrollLeft -= 410;
-  console.log($Slider.scrollLeft);
+  for (let i = 0; i < $Slider.length; i++) {
+    if ($Slider[i] && $buttonRight[i]) {
+      $Slider[i].scrollLeft -= 410;
+    }
+  }
 }
 

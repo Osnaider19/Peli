@@ -21,7 +21,7 @@ function Slide() {
           }
         );
         setMovies(response.data.results);
-        console.log(response.data.results);
+        console.log(response.data.results)
       } catch (error) {
         console.log("Error:", error);
       }

@@ -17,7 +17,7 @@ function Movies(props) {
           {props.movies?.map((movie) => (
             <a href={movie.id} key={movie.id}>
               <li className="overflow-hidden rounded-lg min-w-[200px] ">
-                <div className="relative w-full min-h-[250px] bg-red-500 overflow-hidden">
+                <div className="relative w-full min-h-[250px] overflow-hidden">
                   <img
                     src={`${IMAGE_PAHT + movie.poster_path}`}
                     alt={movie.title}
