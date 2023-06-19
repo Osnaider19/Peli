@@ -1,8 +1,8 @@
 import Nav from "../Nav/Nav";
-import EnCantera from "./EnCantera/EnCantera";
+import Cartelera from "./EnCartelera/Cartelera";
 import Proximamente from "./Proximamente/Proximamente";
-
 import Slider from "./Slider/Slider";
+import Tendencias from "./Tendencias/Tendencias";
 
 function Main() {
   return (
@@ -11,7 +11,8 @@ function Main() {
         <Nav></Nav>
         <Slider></Slider>
         <Proximamente></Proximamente>
-        <EnCantera></EnCantera>
+        <Tendencias></Tendencias>
+        <Cartelera></Cartelera>
       </div>
     </main>
   );

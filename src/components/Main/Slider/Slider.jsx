@@ -33,7 +33,7 @@ function Slide() {
   return (
     <div className="relative flex m-auto w-[95%] h-[390px]  mr-7 bg-slate-800 rounded-xl overflow-hidden ">
       <ul
-        className="relative overflow-x-auto flex snap-mandatory snap-x scroll-smooth container-slider "
+        className="relative flex snap-mandatory snap-x scroll-smooth container-slider "
         onMouseOver={ScrollAutomatico}
       >
         {movies.map((movie) => (
@@ -46,6 +46,7 @@ function Slide() {
               src={`${IMAGE_PAHT + movie.backdrop_path}`}
               alt={movie.title}
               className="object-cover h-full w-full absolute "
+              loading="lazy"
             />
 
             <div className="text-white  relative pt-20 px-9 z-20">
