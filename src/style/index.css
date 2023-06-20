@@ -97,3 +97,8 @@ body{
     100% { transform: rotate(360deg) }
   }
    
+
+.activo {
+  background-color: #475569;
+  transition: .5s all;
+}

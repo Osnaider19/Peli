@@ -1,9 +1,10 @@
 import Nav from "../Nav/Nav";
 import Search from "../SearchMovie/Search";
 import Cartelera from "./EnCartelera/Cartelera";
-import Proximamente from "./Proximamente/Proximamente";
+import Populares from "./Populares/Populares";
 import Slider from "./Slider/Slider";
-import Tendencias from "./Tendencias/Tendencias";
+import MovieMasValoradas from "./Lo mas valorado/MovieMasValoradas";
+import TendenciasHoy from "./Tendencias/TendenciasHoy";
 
 function Main() {
   return (
@@ -11,10 +12,11 @@ function Main() {
       <div className="relative w-[100%] pl-48">
         <Nav></Nav>
         <Slider></Slider>
+        <TendenciasHoy/>
         <Cartelera></Cartelera>
-        <Proximamente></Proximamente>
-        <Tendencias></Tendencias>
-       <Search></Search>
+        <Populares></Populares>
+        <MovieMasValoradas/>
+        <Search></Search>
       </div>
     </main>
   );

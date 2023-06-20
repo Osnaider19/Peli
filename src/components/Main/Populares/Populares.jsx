@@ -3,7 +3,7 @@ import Movies from "../Movies/Movies";
 
 const IMAGE_PAHT = "https://image.tmdb.org/t/p/w500/";
 
-function Proximamente(props) {
+function Populares() {
   const { movies, loandig, error } = FechApi(
     "https://api.themoviedb.org/3/movie/popular?language=es&page=1"
   );
@@ -12,4 +12,4 @@ function Proximamente(props) {
   );
 }
 
-export default Proximamente;
+export default Populares;

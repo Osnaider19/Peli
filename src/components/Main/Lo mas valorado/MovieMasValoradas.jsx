@@ -1,7 +1,7 @@
 import {FechApi} from '../Movies/FechApi';
 import Movies from "../Movies/Movies";
 
-function Tendencias() {
+function MovieMasValoradas() {
   const {movies , loandig , error} = FechApi('https://api.themoviedb.org/3/movie/top_rated?language=es-US&page=1')
   
   return (
@@ -9,4 +9,4 @@ function Tendencias() {
   );
 }
 
-export default Tendencias;
+export default  MovieMasValoradas;

@@ -8,7 +8,7 @@ function Movies(props) {
     
   return (
     <div className="relative w-[95%] text-white m-auto">
-      <h1 className="text-2xl py-4">{props.title}</h1>
+     {props.title && <h1 className="text-2xl py-3">{props.title}</h1> }
       <div className="w-full relative h-full slider-movie">
         <ButtonSlider></ButtonSlider>
         <ul  className="flex gap-2 relative overflow-hidden w-full  scroll-smooth container-slider-movie">

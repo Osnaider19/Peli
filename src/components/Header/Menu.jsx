@@ -9,7 +9,7 @@ function Menu() {
           Series
         </a>
         <a href="" className="text-sm font-bold text-slate-200 py-1">
-          Personas Populares
+          Actores
         </a>
       </div>
     </div>

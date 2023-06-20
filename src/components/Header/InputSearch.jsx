@@ -7,8 +7,9 @@ function InputSearch() {
           </i>
           <input
             type="text"
-            placeholder="Buscar películas"
-            className="flex items-center py-2 justify-center outline-none h-8 bg-transparent text-slate-400 text-sm  "
+            id="input-search"
+            placeholder="Buscar películas o series"
+            className="flex items-center py-2  justify-center outline-none h-8 bg-transparent text-slate-400 text-sm w-56"
           />
         </div>
     );

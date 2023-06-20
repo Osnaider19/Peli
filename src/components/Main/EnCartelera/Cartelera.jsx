@@ -4,7 +4,7 @@ import { FechApi } from "../Movies/FechApi";
 function Cartelera() {
     const {movies, loandig , error } = FechApi('https://api.themoviedb.org/3/movie/now_playing?language=es&page=1')
    return(
-    <Movies title="En cartelera hoy" movies={movies} loandig={loandig} error={error}></Movies>
+    <Movies title="En cine hoy" movies={movies} loandig={loandig} error={error}></Movies>
    ); 
 }
 
