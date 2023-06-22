@@ -1,39 +1,19 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
 import { AiFillStar } from "react-icons/ai";
 import { ScrollAutomatico } from "./FScrollAutomatico";
+import {FechApi} from '../Movies/FechApi';
+import { convertirFecha } from "../Movies/convertirFecha";
 
 function Slide() {
-  const [movies, setMovies] = useState([]);
-  const URL = "https://api.themoviedb.org/3/movie/popular?api_key=";
-  const API_KEY = "b62c5015964d4fcc4805e0ce64dfd3c4";
+  const { movies} = FechApi(
+    "https://api.themoviedb.org/3/movie/popular?language=es&page=1"
+  );
+
   const IMAGE_PAHT = "https://image.tmdb.org/t/p/original/";
 
-  useEffect(() => {
-    const fetchMovies = async () => {
-      try {
-        const response = await axios.get(
-          `https://api.themoviedb.org/3/movie/popular?language=es&page=1`,
-          {
-            params: {
-              api_key: API_KEY,
-            },
-          }
-        );
-        setMovies(response.data.results);
-        console.log(response.data.results)
-      } catch (error) {
-        console.log("Error:", error);
-      }
-    };
-
-    fetchMovies();
-  }, []);
-
   return (
-    <div className="relative flex m-auto w-[95%] h-[390px]  mr-7 bg-slate-800 rounded-xl overflow-hidden ">
+    <div className="relative flex m-auto w-[95%] h-[410px]  mr-7 bg-slate-800 rounded-xl overflow-hidden ">
       <ul
-        className="relative flex snap-mandatory snap-x scroll-smooth container-slider "
+        className="relative flex snap-mandatory  snap-x scroll-smooth container-slider "
         onMouseOver={ScrollAutomatico}
       >
         {movies.map((movie) => (
@@ -42,6 +22,7 @@ function Slide() {
             className="relative w-full h-full min-w-full min-h-full snap-center "
           >
             <div className="absolute w-full h-full bg-black/40 z-10 pointer-events-none"></div>
+
             <img
               src={`${IMAGE_PAHT + movie.backdrop_path}`}
               alt={movie.title}
@@ -55,7 +36,13 @@ function Slide() {
                 <p className="text-ms w-[50%] py-1 ">{movie.overview}</p>
               </div>
               <div className="">
-                <p className="py-1">{movie.release_date}</p>
+                <p className="py-1"> {convertirFecha(
+                    `${
+                      movie.release_date
+                        ? movie.release_date
+                        : movie.first_air_date
+                    }`
+                  )}</p>
               </div>
               <div className="flex items-center relative">
                 <span className="text-ms text-yellow-400 inline-block">

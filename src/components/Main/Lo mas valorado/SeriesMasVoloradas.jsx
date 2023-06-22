@@ -1,50 +1,49 @@
 import { useState } from "react";
+import { FechApi } from "../Movies/FechApi";
 import Movies from "../Movies/Movies";
-import { GetMoviesTendecias } from "./GetMoviesTendencias";
-import TendenciasSemana from "./TendenciasSemana";
+import MovieMasValoradas from "./MovieMasValoradas";
 
-function TendenciasHoy() {
-  const [estado, setEstado] = useState(true);
+function SeriesMasValoradas() {
 
-  const { movies, loandig, error } = GetMoviesTendecias(
-    "https://api.themoviedb.org/3/trending/all/day?language=es"
-  );
+    const [estado, setEstado] = useState(true);
 
-  const handelDesactivado = () => {
+   const { movies , loandig , error} = FechApi('https://api.themoviedb.org/3/tv/top_rated?language=es&page=1')
+
+   const handelDesactivado = () => {
     setEstado(false);
-    const $buttonHoy = document.querySelector(".button-hoy");
-    const $buttonSemana = document.querySelector(".button-semana");
+    const $buttonHoy = document.querySelector(".button-series");
+    const $buttonSemana = document.querySelector(".button-peliculas");
     estado && $buttonSemana.classList.add("activo");
     estado != $buttonHoy.classList.remove("activo");
   };
   const handelActivo = () => {
     setEstado(true);
-    const $buttonHoy = document.querySelector(".button-hoy");
-    const $buttonSemana = document.querySelector(".button-semana");
+    const $buttonHoy = document.querySelector(".button-series");
+    const $buttonSemana = document.querySelector(".button-peliculas");
     estado != $buttonHoy.classList.add("activo");
     estado != $buttonSemana.classList.remove("activo");
   };
 
-  return (
+   return (
     <>
-      <div className="relative w-[95%] m-auto py-2 text-white">
+    <div className="relative w-[95%] m-auto py-2 text-white">
         <div className="flex items-center  relative ">
           <h2 className=" font-bold text-xl py-2  inline-block">
-            Tendecias de
+           Lo más valorado
           </h2>
           <div className="inline-block  py-2  ml-2 ">
             <div id="button-tendencias" className="flex items-center relative border-[1px] top-[1px] overflow-hidden  rounded-full border-slate-700">
               <button
-                className="px-6 text-ms py-[2px]  rounded-full activo button-hoy"
+                className="px-6 text-ms py-[2px]  rounded-full activo button-series"
                 onClick={handelActivo}
               >
-                Hoy
+                Series
               </button>
               <button
-                className="px-6 text-ms py-[2px]  rounded-full button-semana"
+                className="px-6 text-ms py-[2px]  rounded-full button-peliculas"
                 onClick={handelDesactivado}
               >
-                Esta Semana
+                Películas
               </button>
             </div>
           </div>
@@ -53,10 +52,10 @@ function TendenciasHoy() {
       {estado ? (
         <Movies movies={movies} loandig={loandig} error={error} />
       ) : (
-        <TendenciasSemana />
+        <MovieMasValoradas/>
       )}
     </>
-  );
+   );
 }
 
-export default TendenciasHoy;
+export default SeriesMasValoradas;

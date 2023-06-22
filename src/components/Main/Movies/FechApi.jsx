@@ -23,6 +23,6 @@ import axios from "axios";
     };
 
    fetchUpcomingMovies();
-  }, []);
+  }, [url]);
   return {movies, loandig , error};
 }

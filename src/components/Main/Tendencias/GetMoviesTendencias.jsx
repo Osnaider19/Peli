@@ -1,15 +1,13 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export function GetMoviesSemana(url) {
+export function GetMoviesTendecias(url) {
   const API_KEY = "b62c5015964d4fcc4805e0ce64dfd3c4";
   const [movies, setMovies] = useState([]);
   const [loandig, setLoanding] = useState(true);
   const [error, setError] = useState(null);
-  const [obtenerMovies, setObtenerMovies] = useState(true);
 
-  
-  useEffect(()=>{
+  useEffect(() => {
     const fetchUpcomingMovies = async () => {
       try {
         const response = await axios.get(url, {
@@ -22,12 +20,9 @@ export function GetMoviesSemana(url) {
       } catch (error) {
         setError(error);
       }
-      obtenerMovies !=  fetchUpcomingMovies();
     };
-  } , [obtenerMovies]);
+     fetchUpcomingMovies();
+  }, [url]);
 
-  
-
-  return { movies, loandig, error  } 
+  return { movies, loandig, error }
 }
-
