@@ -2,12 +2,13 @@ import { useState } from "react";
 import { FechApi } from "../Movies/FechApi";
 import Movies from "../Movies/Movies";
 import MovieMasValoradas from "./MovieMasValoradas";
+import { getData } from "../../../hooks/useGetData";
 
 function SeriesMasValoradas() {
 
     const [estado, setEstado] = useState(true);
 
-   const { movies , loandig , error} = FechApi('https://api.themoviedb.org/3/tv/top_rated?language=es&page=1')
+   const { data , loandig , error} = getData('https://api.themoviedb.org/3/tv/top_rated?language=es&page=1')
 
    const handelDesactivado = () => {
     setEstado(false);
@@ -50,7 +51,7 @@ function SeriesMasValoradas() {
         </div>
       </div>
       {estado ? (
-        <Movies movies={movies} loandig={loandig} error={error} />
+        <Movies movies={data} loandig={loandig} error={error} />
       ) : (
         <MovieMasValoradas/>
       )}

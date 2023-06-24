@@ -2,17 +2,29 @@ import { AiFillStar } from "react-icons/ai";
 import ButtonSlider from "./ButtonSlider";
 import Loader from "./Loader";
 import { convertirFecha, roundedStar } from "./convertirFecha";
+import { useRef } from "react";
 const IMAGE_PAHT = "https://image.tmdb.org/t/p/w500/";
 
-function Movies(props) {
+export default function Movies(props) {
+  const refSlider = useRef();
+
+  function handelScrollLeft() {
+    refSlider.current.scrollLeft -= 400;
+    console.log(refSlider);
+  }
+  function handelScrollRigth() {
+    refSlider.current.scrollLeft += 400;
+    console.log(refSlider);
+  }
   return (
+  
     <div className="relative w-[95%] text-white m-auto">
       {props.title && <h2 className="text-xl py-2 font-bold">{props.title}</h2>}
       <div className="w-full relative h-full slider-movie">
-        {props.loandig && <Loader />}
+        {props.loandig && <Loader/>}
         {props.error && <h4> Erros : {props.error}</h4>}
-        <ButtonSlider></ButtonSlider>
-        <ul className="flex gap-2 relative overflow-hidden w-full  scroll-smooth container-slider-movie">
+        <ButtonSlider scrollLeft={handelScrollLeft} scrollRigth={handelScrollRigth}></ButtonSlider>
+        <ul ref={refSlider} className="flex gap-2 relative overflow-hidden w-full  scroll-smooth container-slider-movie">
           {props.movies?.map((movie) => (
             <li
               key={movie.id}
@@ -43,10 +55,10 @@ function Movies(props) {
                   {convertirFecha(
                     `${
                       movie.release_date
-                        ? movie.release_date
-                        : movie.first_air_date
+                      ? movie.release_date
+                      : movie.first_air_date
                     }`
-                  )}
+                    )}
                 </p>
               </div>
             </li>
@@ -58,4 +70,4 @@ function Movies(props) {
   );
 }
 
-export default Movies;
+

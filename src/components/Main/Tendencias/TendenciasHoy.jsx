@@ -44,7 +44,7 @@ function TendenciasHoy() {
                 className="px-6 text-ms py-[2px]  rounded-full button-semana"
                 onClick={handelDesactivado}
               >
-                Esta Semana
+                Esta semana
               </button>
             </div>
           </div>

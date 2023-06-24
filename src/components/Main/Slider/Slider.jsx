@@ -1,25 +1,30 @@
 import { AiFillStar } from "react-icons/ai";
-import { ScrollAutomatico } from "./FScrollAutomatico";
-import {FechApi} from '../Movies/FechApi';
 import { convertirFecha } from "../Movies/convertirFecha";
+import { getCincoMovies } from "./useGetCincoMovies"; 
+import { useRef } from "react";
 
 function Slide() {
-  const { movies} = FechApi(
-    "https://api.themoviedb.org/3/movie/popular?language=es&page=1"
-  );
-
   const IMAGE_PAHT = "https://image.tmdb.org/t/p/original/";
+  
+  const {movies , loandig , error} = getCincoMovies('https://api.themoviedb.org/3/movie/popular?language=es&page=1')
 
+  const slider = useRef();
+
+  function scroll() {
+      slider.current.scrollLeft += 1000;
+      console.log('se ejecuto');
+  }
+  
   return (
     <div className="relative flex m-auto w-[95%] h-[410px]  mr-7 bg-slate-800 rounded-xl overflow-hidden ">
       <ul
-        className="relative flex snap-mandatory  snap-x scroll-smooth container-slider "
-        onMouseOver={ScrollAutomatico}
+        ref={slider}
+        className="relative  flex snap-x snap-mandatory overflow-hidden scroll-smooth"
       >
-        {movies.map((movie) => (
+        {movies.map((movie) => (    
           <li
             key={movie.id}
-            className="relative w-full h-full min-w-full min-h-full snap-center "
+            className="relative snap-center w-full h-full min-w-full min-h-full  "
           >
             <div className="absolute w-full h-full bg-black/40 z-10 pointer-events-none"></div>
 
@@ -36,7 +41,7 @@ function Slide() {
                 <p className="text-ms w-[50%] py-1 ">{movie.overview}</p>
               </div>
               <div className="">
-                <p className="py-1"> {convertirFecha(
+              <p className="py-1 inline-block"> {convertirFecha(
                     `${
                       movie.release_date
                         ? movie.release_date
@@ -60,8 +65,12 @@ function Slide() {
           </li>
         ))}
       </ul>
+      {console.log(movies)}
     </div>
   );
 }
 
 export default Slide;
+
+
+

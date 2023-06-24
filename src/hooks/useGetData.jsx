@@ -1,31 +1,21 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-export function FechApi(url) {
+export function getData(url) {
   const API_KEY = "b62c5015964d4fcc4805e0ce64dfd3c4";
-  const [movies, setMovies] = useState([]);
+  const [data, setData] = useState([]);
   const [loandig, setLoanding] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const getMovies = async () => {
+    const getData = async () => {
       try {
         const response = await axios.get(url, {
           params: {
             api_key: API_KEY,
           },
         });
-       /* if (!response) {
-          throw {
-            err: true,
-            status: response.status,
-            statusText: !response.statusText
-              ? "Ocurrio un error"
-              : response.statusText,
-          };
-        }
-        */
-        setMovies(response.data.results);
+        setData(response.data.results);
         setLoanding(false);
       } catch (error) {
         setError(error);
@@ -33,7 +23,7 @@ export function FechApi(url) {
       }
     };
 
-    getMovies();
+    getData();
   }, [url]);
-  return { movies, loandig, error };
+  return { data, loandig, error };
 }

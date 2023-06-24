@@ -18,6 +18,7 @@ html::-webkit-scrollbar-thumb{
   border-radius: 20px;
   
 }
+
 .scroll-categories::-webkit-scrollbar{
     width: 10px;
     background-color: rgba(15, 23, 42 , .9);
