@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
 import { BsFacebook  , BsInstagram , BsTwitter , BsGithub} from "react-icons/bs";
 function Footer() {
-  const [postionFooter , setPositionFooter] = useState("");
+  /*const [postionFooter , setPositionFooter] = useState("");
   
   useEffect(()=>{
     const pathFooter =  () =>{
@@ -10,10 +9,10 @@ function Footer() {
       : setPositionFooter("pl-52");
     }
     pathFooter();
-  }, [postionFooter])
+  }, [postionFooter])*/
   return (
     <footer>
-      <div className={`${postionFooter} + relative w-[95%]  m-auto text-[#C0E8F0]`}>
+      <div className={"relative w-[95%] pb-12 m-auto text-[#C0E8F0]"}>
         <div className="m-auto pt-24 w-[100%] py-6  ">
           <ul className="flex gap-8 items-star justify-between">
             <li>

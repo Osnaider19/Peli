@@ -3,11 +3,11 @@ import ButtonSlider from "./ButtonSlider";
 import Loader from "./Loader";
 import { convertirFecha, roundedStar } from "./convertirFecha";
 import { useRef } from "react";
+import { Link, useParams } from "react-router-dom";
 const IMAGE_PAHT = "https://image.tmdb.org/t/p/w500/";
 
 export default function Movies(props) {
   const refSlider = useRef();
-
   function handelScrollLeft() {
     refSlider.current.scrollLeft -= 400;
     console.log(refSlider);
@@ -30,7 +30,7 @@ export default function Movies(props) {
               key={movie.id}
               className="overflow-hidden rounded-lg min-w-[200px] "
             >
-              <a href={movie.id}>
+              <Link to={`/movies/${movie.id}`}>
                 <div className="relative w-full min-h-[250px] overflow-hidden">
                   <img
                     src={`${IMAGE_PAHT + movie.poster_path}`}
@@ -38,7 +38,7 @@ export default function Movies(props) {
                     className="block w-full max-h-[250px] object-cover  hover:scale-105 transition duration-100"
                   />
                 </div>
-              </a>
+              </Link>
               <div>
                 <p>{movie.title ? movie.title : movie.name}</p>
               </div>

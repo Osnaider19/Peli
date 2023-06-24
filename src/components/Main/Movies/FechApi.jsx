@@ -15,16 +15,7 @@ export function FechApi(url) {
             api_key: API_KEY,
           },
         });
-       /* if (!response) {
-          throw {
-            err: true,
-            status: response.status,
-            statusText: !response.statusText
-              ? "Ocurrio un error"
-              : response.statusText,
-          };
-        }
-        */
+       
         setMovies(response.data.results);
         setLoanding(false);
       } catch (error) {
