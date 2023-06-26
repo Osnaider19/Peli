@@ -24,6 +24,6 @@ import axios from "axios";
     };
 
     getMovies();
-  }, [url]);
+  }, []);
   return { movies, loandig, error };
 }

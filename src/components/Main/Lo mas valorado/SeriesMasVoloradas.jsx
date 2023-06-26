@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { FechApi } from "../Movies/FechApi";
 import Movies from "../Movies/Movies";
 import MovieMasValoradas from "./MovieMasValoradas";
 import { getData } from "../../../hooks/useGetData";
@@ -51,7 +50,7 @@ function SeriesMasValoradas() {
         </div>
       </div>
       {estado ? (
-        <Movies movies={data} loandig={loandig} error={error} />
+        <Movies movies={data} categoria="series" loandig={loandig} error={error} />
       ) : (
         <MovieMasValoradas/>
       )}

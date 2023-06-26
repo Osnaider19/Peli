@@ -8,11 +8,12 @@ export function getData(url) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const getData = async () => {
+    const fechApi = async () => {
       try {
         const response = await axios.get(url, {
           params: {
             api_key: API_KEY,
+            language : 'es'
           },
         });
         setData(response.data.results);
@@ -23,7 +24,7 @@ export function getData(url) {
       }
     };
 
-    getData();
+    fechApi();
   }, [url]);
   return { data, loandig, error };
 }

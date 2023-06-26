@@ -14,7 +14,6 @@ import axios from "axios";
           });
          
           setCategorias(response.data.genres);
-          console.log(response.data)
         } catch (error) {
           console.log('erro en obtener las categorias' + error)
         }

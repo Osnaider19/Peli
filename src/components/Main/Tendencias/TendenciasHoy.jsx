@@ -51,7 +51,7 @@ function TendenciasHoy() {
         </div>
       </div>
       {estado ? (
-        <Movies movies={movies} loandig={loandig} error={error} />
+        <Movies movies={movies} categoria="movies" loandig={loandig} error={error} />
       ) : (
         <TendenciasSemana />
       )}

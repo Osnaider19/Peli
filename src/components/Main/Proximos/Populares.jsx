@@ -8,7 +8,7 @@ function Populares() {
     "https://api.themoviedb.org/3/movie/upcoming?language=es&page=1"
   );
   return (
-    <Movies title="Proximos estrenos" movies={movies} loandig={loandig} error={error}></Movies>
+    <Movies title="Proximos estrenos" movies={movies} categoria="movies" loandig={loandig} error={error}></Movies>
   );
 }
 

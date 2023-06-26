@@ -1,6 +1,6 @@
 import Cartelera from "./EnCartelera/Cartelera";
 import SeriesMasValoradas from "./Lo mas valorado/SeriesMasVoloradas";
-import Populares from "./Populares/Populares";
+import Populares from "./Proximos/Populares";
 import Slider from "./Slider/Slider";
 
 import TendenciasHoy from "./Tendencias/TendenciasHoy";

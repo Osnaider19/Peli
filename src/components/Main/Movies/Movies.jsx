@@ -3,8 +3,8 @@ import ButtonSlider from "./ButtonSlider";
 import Loader from "./Loader";
 import { convertirFecha, roundedStar } from "./convertirFecha";
 import { useRef } from "react";
-import { Link, useParams } from "react-router-dom";
-const IMAGE_PAHT = "https://image.tmdb.org/t/p/w500/";
+import { Link } from "react-router-dom";
+import { IMAGE_PAHT } from "../../../config/config";
 
 export default function Movies(props) {
   const refSlider = useRef();
@@ -30,7 +30,7 @@ export default function Movies(props) {
               key={movie.id}
               className="overflow-hidden rounded-lg min-w-[200px] "
             >
-              <Link to={`/movies/${movie.id}`}>
+              <Link to={`/${props.categoria}/${movie.id}`}>
                 <div className="relative w-full min-h-[250px] overflow-hidden">
                   <img
                     src={`${IMAGE_PAHT + movie.poster_path}`}
