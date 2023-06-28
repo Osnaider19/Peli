@@ -1,11 +1,11 @@
-import Movies from "../Movies/Movies";
 import { GetMoviesTendecias } from "./GetMoviesTendencias"; 
+import Tendencias from "./Tendencias";
 
 
 function TendenciasSemana() {
     const {movies , loandig , error } = GetMoviesTendecias('https://api.themoviedb.org/3/trending/all/week?language=es')
     
-    return <Movies movies={movies} categoria="movies" loandig={loandig} error={error}></Movies>
+    return <Tendencias movies={movies} loandig={loandig} error={error}/>
 }
 
 

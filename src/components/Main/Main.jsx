@@ -1,6 +1,7 @@
 import Cartelera from "./EnCartelera/Cartelera";
 import SeriesMasValoradas from "./Lo mas valorado/SeriesMasVoloradas";
-import Populares from "./Proximos/Populares";
+import Proximos from "./Proximos/Proximos";
+
 import Slider from "./Slider/Slider";
 
 import TendenciasHoy from "./Tendencias/TendenciasHoy";
@@ -13,7 +14,7 @@ function Main() {
         <TendenciasHoy/>
         <SeriesMasValoradas/>
         <Cartelera></Cartelera>
-        <Populares></Populares>
+        <Proximos></Proximos>
       </div>
     </main>
   );

@@ -81,12 +81,12 @@ export default function Movies() {
                 key={movie.id}
                 className="overflow-hidden rounded-lg max-w-[200px] min-w-[200px]"
               >
-                <Link to={`/movies/${movie.id}`}>
+                <Link to={`/movie/${movie.id}`}>
                   <div className="relative w-full min-h-[250px] overflow-hidden">
                     <img
                       src={`${IMAGE_PAHT + movie.poster_path}`}
                       alt={movie.title}
-                      className="block w-full max-h-[250px]  object-cover  hover:scale-105 transition duration-100"
+                      className="block w-full max-h-[250px]   object-cover  hover:scale-105 transition duration-100"
                     />
                   </div>
                 </Link>

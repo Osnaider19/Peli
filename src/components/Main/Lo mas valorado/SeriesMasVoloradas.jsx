@@ -50,7 +50,7 @@ function SeriesMasValoradas() {
         </div>
       </div>
       {estado ? (
-        <Movies movies={data} categoria="series" loandig={loandig} error={error} />
+        <Movies movies={data} categoria="tv" loandig={loandig} error={error} />
       ) : (
         <MovieMasValoradas/>
       )}

@@ -2,6 +2,7 @@ import { AiFillStar } from "react-icons/ai";
 import { convertirFecha } from "../Movies/convertirFecha";
 import { getCincoMovies } from "./useGetCincoMovies"; 
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 
 function Slide() {
   const IMAGE_PAHT = "https://image.tmdb.org/t/p/original/";
@@ -57,9 +58,9 @@ function Slide() {
               </div>
 
               <div className="relative py-5">
-                <a href="" className="py-2 px-7 bg-[#d9254c] rounded-md">
+                <Link to={`/movie/${movie.id}`} className="py-2 px-7 bg-[#d9254c] rounded-md">
                   Ver
-                </a>
+                </Link>
               </div>
             </div>
           </li>

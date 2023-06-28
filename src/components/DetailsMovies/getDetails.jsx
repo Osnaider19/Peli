@@ -4,6 +4,7 @@ import { API_KEY } from "../../config/config";
 export function getDetailsMovies(url) {
   const [details, setDetails] = useState([]);
   const [error, setError] = useState(null);
+  const [loader, setLoader] = useState(true);
   useEffect(() => {
     const getDetails = async () => {
       try {
@@ -14,12 +15,14 @@ export function getDetailsMovies(url) {
           },
         });
         setDetails(response.data);
+        setLoader(false);
       } catch (error) {
         setError(error);
+        setLoader(true);
       }
     };
     getDetails();
   }, [url]);
 
-  return { details };
+  return { details , loader , error };
 }

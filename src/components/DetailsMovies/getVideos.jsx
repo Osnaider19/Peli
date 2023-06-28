@@ -1,28 +1,30 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
-import { API_KEY } from "../../config/config"; 
+import { API_KEY } from "../../config/config";
+import axios from "axios";
 
-export function getCreditos(url) {
-  const [creditos, setCreditos] = useState([]);
+export function getVideos(url) {
+  const [videos, setVideos] = useState([]);
   const [error, setError] = useState(null);
   const [loader, setLoader] = useState(true);
   useEffect(() => {
-    const getDetails = async () => {
+    const getVideos = async () => {
       try {
         const response = await axios.get(url, {
           params: {
             api_key: API_KEY,
+            append_to_response : 'videos',
+            language : 'es',
           },
         });
-        setCreditos(response.data);
+        setVideos(response);
         setLoader(false)
       } catch (error) {
         setError(error);
         setLoader(true)
       }
     };
-    getDetails();
+    getVideos();
   }, [url]);
 
-  return { creditos , error , loader };
+  return { videos , error , loader };
 }
