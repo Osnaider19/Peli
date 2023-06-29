@@ -70,7 +70,16 @@ html::-webkit-scrollbar-thumb{
 .loader-animation{
   animation: Loader .7s infinite alternate;
 }
+ 
 
+.scroll-bottom::-webkit-scrollbar{
+  background-color: rgba(15, 23, 42 , .9);
+  width: 2px;
+}
+.scroll-bottom::-webkit-scrollbar-thumb{
+  background-color: rgba(78, 86, 102, 0.7);
+  border-radius: 50px;
+}
 @keyframes Loader {
   0%{
    background-color: #475569;

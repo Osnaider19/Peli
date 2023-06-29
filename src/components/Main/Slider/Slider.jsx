@@ -20,7 +20,7 @@ function Slide() {
     <div className="relative flex m-auto w-[95%] h-[410px]  mr-7 bg-slate-800 rounded-xl overflow-hidden ">
       <ul
         ref={slider}
-        className="relative  flex snap-x snap-mandatory overflow-hidden scroll-smooth"
+        className="relative  flex snap-x snap-mandatory overflow-hidden  scroll-smooth"
       >
         {movies.map((movie) => (    
           <li

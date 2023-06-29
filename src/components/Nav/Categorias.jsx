@@ -12,13 +12,14 @@ function Categorias() {
     <div>
       <ul className="text-[#E2E8F0] py-2 mt-14">
         {categorias?.map((genre) => (
-          <Link
-            href={genre.id}
-            key={genre.id}
-            className="py-3 px-3 block hover:bg-slate-800 transition-all"
+          <li key={genre.id} className="px-2 ">
+            <Link
+            to={`/movies/${genre.id}`}
+            className="py-3 px-2 block rounded-lg hover:bg-slate-800 transition-colors duration-200"
           >
-            <li>{genre.name}</li>
+            <span>{genre.name}</span>
           </Link>
+          </li>
         ))}
       </ul>
     </div>

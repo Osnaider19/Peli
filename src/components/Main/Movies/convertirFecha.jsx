@@ -26,3 +26,12 @@ export function roundedStar(star) {
 }
 
 
+export function convertirDuration(duration) {
+  const duracion = duration; 
+  const horas = Math.floor(duracion / 60); 
+  const minutos = duracion % 60; 
+  const duracionFormateada = `${horas}h ${minutos}m`; 
+  return duracionFormateada
+}
+
+

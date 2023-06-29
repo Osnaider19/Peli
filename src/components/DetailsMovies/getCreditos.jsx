@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { API_KEY } from "../../config/config"; 
 
-export function getCreditos(url) {
+export function getCreditos(url , id) {
   const [creditos, setCreditos] = useState([]);
   const [error, setError] = useState(null);
   const [loader, setLoader] = useState(true);
@@ -12,6 +12,7 @@ export function getCreditos(url) {
         const response = await axios.get(url, {
           params: {
             api_key: API_KEY,
+            language : 'es',
           },
         });
         setCreditos(response.data);
@@ -22,7 +23,7 @@ export function getCreditos(url) {
       }
     };
     getDetails();
-  }, [url]);
+  }, [url , id]);
 
   return { creditos , error , loader };
 }

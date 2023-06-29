@@ -8,7 +8,6 @@ export default function ModalTrailer(props) {
   const {videos} = getVideos(Url)
   return (
     <>
-      <div>hola</div>
       {console.log(videos)}
     </>
   );
