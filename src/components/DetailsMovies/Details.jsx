@@ -13,10 +13,11 @@ import Footer from "../Footer/Footer";
 import { convertirDuration } from "../Main/Movies/convertirFecha";
 
 export function Details() {
+  
   const { id } = useParams();
   const Url = `${URL}/movie/${id}`;
   const { details, loader, error } = getDetailsMovies(Url);
-
+  document.title = `${details.title} - Movie Tv` ;
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [id]);

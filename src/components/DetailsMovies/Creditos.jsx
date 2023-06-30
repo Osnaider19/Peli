@@ -4,13 +4,14 @@ import { useEffect, useRef, useState } from "react";
 import ButtonSlider from "../Main/Movies/ButtonSlider";
 import { handelScrollLeft ,handelScrollRigth } from "../../hooks/funtionScroll";
 import { Link } from "react-router-dom";
+import { defaultImg } from "../../config/config";
 
 export function Creditos({id}) {
   
   const Url = `https://api.themoviedb.org/3/movie/${id}/credits?`;
-
+  
   const { creditos, error, loader } = getCreditos(Url , id);
- // const cast = creditos.cast?.splice(0 , 20);
+  const cast = creditos.cast?.slice(0 , 15);
   const refSlider = useRef();
    
   useEffect(()=>{
@@ -33,14 +34,14 @@ export function Creditos({id}) {
             className="relative  scroll-smooth flex overflow-hidden gap-3 justify-between "
           >
             
-            {creditos.cast ? (
-             creditos.cast.map((actor) => (
+            {cast ? (
+             cast.map((actor) => (
                 <li
                   key={actor.id}
                   className="rounded-xl overflow-hidden w-auto max-w-[210px] min-w-[210px]"
                 >
                   <img
-                    src={`${IMAGE_PAHT + actor.profile_path}`}
+                    src={actor.profile_path ? `${IMAGE_PAHT + actor.profile_path}` : defaultImg }
                     alt={actor.name}
                     className="block w-full min-h-[250px] max-h-[250px] object-cover"
                   />
@@ -56,7 +57,8 @@ export function Creditos({id}) {
             </div>
           </ul>
         </div>
-        {console.log(creditos.cast)}
+        {console.log(cast )}
+        {console.log(id)}
       </div>
     </>
   );
