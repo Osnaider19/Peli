@@ -2,8 +2,6 @@ import { URL } from "../../config/config";
 import { getData } from "../../hooks/useGetData";
 import { IMAGE_PAHT } from "../../config/config";
 import { Link } from "react-router-dom";
-import { AiFillStar } from 'react-icons/ai';
-import { roundedStar } from "../Main/Movies/convertirFecha";
 import { useEffect, useRef } from "react";
 export function Recomendadas(props) {
   const Url = URL + `/movie/${props.id}/recommendations?`;

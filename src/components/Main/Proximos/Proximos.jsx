@@ -1,5 +1,5 @@
-import { FechApi } from "../Movies/FechApi";
-import Movies from "../Movies/Movies";
+import { FechApi } from "../SlideMovies/FechApi";
+import SlideMovies from "../SlideMovies/SlideMovies";
 
 
 function Proximos() {
@@ -8,7 +8,7 @@ function Proximos() {
     "https://api.themoviedb.org/3/movie/upcoming?language=es&page=1"
   );
   return (
-    <Movies title="Proximos estrenos" movies={movies} categoria="movie" loandig={loandig} error={error}></Movies>
+    <SlideMovies title="Proximos estrenos" movies={movies} categoria="movie" loandig={loandig} error={error}/>
   );
 }
 

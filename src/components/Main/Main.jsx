@@ -8,7 +8,7 @@ import TendenciasHoy from "./Tendencias/TendenciasHoy";
 
 function Main() {
   return (
-    <main className=" w-[100%] relative pt-[75px] py-2 flex justify-end flex-col">
+    <main className=" w-[100%] relative pt-[100px] py-2 flex justify-end flex-col">
       <div className="relative w-[100%] ">
         <Slider></Slider>
         <TendenciasHoy/>

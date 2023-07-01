@@ -13,9 +13,9 @@ function Footer() {
   return (
     <footer>
       <div className={"relative w-[95%] pb-12 m-auto text-[#C0E8F0]"}>
-        <div className="m-auto pt-24 w-[100%] py-6  ">
-          <ul className="flex gap-8 items-star justify-between">
-            <li>
+        <div className="m-auto pt-24 w-[100%] py-6">
+          <ul className="flex flex-col gap-8 items-star justify-between md:flex-row">
+            <li className="flex-shrink-0">
               <h3 className="uppercase font-bold">Lo Basico</h3>
               <div className="flex flex-col">
                 <a href="" className="py-1">
@@ -33,7 +33,7 @@ function Footer() {
               </div>
             </li>
 
-            <li>
+            <li className="flex-shrink-0">
               <h3 className="uppercase font-bold">PARTICIPA</h3>
               <div className="flex flex-col">
                 <a href="" className="py-1">

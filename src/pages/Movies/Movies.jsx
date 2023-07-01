@@ -9,7 +9,7 @@ export const Movies = () => {
   } , [])
   return (
     <>
-    <main className="relative top-[70px] pl-48">
+    <main className="relative pl-0 md:top-[70px] md:pl-48">
       <div className="">
         
         <Movie/>

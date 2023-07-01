@@ -2,14 +2,16 @@ import { AiFillStar } from "react-icons/ai";
 import ButtonSlider from "./ButtonSlider";
 import Loader from "./Loader";
 import { convertirFecha, roundedStar } from "./convertirFecha";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { IMAGE_PAHT } from "../../../config/config";
-import { handelScrollLeft, handelScrollRigth } from "../../../hooks/funtionScroll";
-export default function Movies(props) {
+import {
+  handelScrollLeft,
+  handelScrollRigth,
+} from "../../../hooks/funtionScroll";
+export default function SlideMovies(props) {
 
   const refSlider = useRef();
-  
 
   return (
     <div className="relative w-[95%] text-white m-auto">
@@ -27,19 +29,25 @@ export default function Movies(props) {
         />
         <ul
           ref={refSlider}
-          className="flex gap-2 relative overflow-hidden w-full  scroll-smooth container-slider-movie"
+          className="flex gap-2 relative overflow-x-scroll w-full  scroll-smooth container-slider-movie md:overflow-hidden"
         >
           {props.movies?.map((movie) => (
             <li
               key={movie.id}
-              className="overflow-hidden rounded-lg min-w-[200px] "
+              className="overflow-hidden rounded-lg min-w-[150px] md:min-w-[210px]"
             >
-              <Link to={`/${props.categoria}/${movie.id}`}>
-                <div className="relative w-full min-h-[250px] overflow-hidden">
+              <Link
+                to={
+                  movie.media_type
+                    ? `/${movie.media_type}/${movie.id}`
+                    : `/${props.categoria}/${movie.id}`
+                }
+              >
+                <div className="relative w-full min-h-[225px] overflow-hidden md:min-w-[210px]">
                   <img
                     src={`${IMAGE_PAHT + movie.poster_path}`}
                     alt={movie.title}
-                    className="block w-full max-h-[250px] object-cover  hover:scale-105 transition duration-100"
+                    className="block w-full max-h-[250px] object-cover  hover:scale-105 transition duration-100 md:min-w-[210px]"
                   />
                 </div>
               </Link>

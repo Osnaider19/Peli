@@ -26,7 +26,7 @@ export function GetMovies(url , page ) {
     };
     fetchData();
   }, [page , url]);
-  return { movies, loading, error , setMovies};
+  return { movies, loading, error , setMovies , setLoading};
 
   
 }

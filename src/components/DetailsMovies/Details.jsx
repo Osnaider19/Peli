@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom";
-import { convertirFecha, roundedStar } from "../Main/Movies/convertirFecha";
+import { convertirFecha, roundedStar } from "../Main/SlideMovies/convertirFecha";
 import { MdOutlineStar } from "react-icons/md";
 import { Creditos } from "./Creditos";
 import { IMAGE_PAHT } from "../../config/config";
@@ -10,7 +10,7 @@ import ModalTrailer from "./ModelTrailer";
 import Loader from "./Loader";
 import { Recomendadas } from "./Recomendadas";
 import Footer from "../Footer/Footer";
-import { convertirDuration } from "../Main/Movies/convertirFecha";
+import { convertirDuration } from "../Main/SlideMovies/convertirFecha";
 
 export function Details() {
   const { id } = useParams();

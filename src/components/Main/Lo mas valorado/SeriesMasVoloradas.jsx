@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Movies from "../Movies/Movies";
+import SlideMovies from "../SlideMovies/SlideMovies";
 import MovieMasValoradas from "./MovieMasValoradas";
 import { getData } from "../../../hooks/useGetData";
 
@@ -50,7 +50,7 @@ function SeriesMasValoradas() {
         </div>
       </div>
       {estado ? (
-        <Movies movies={data} categoria="tv" loandig={loandig} error={error} />
+        <SlideMovies movies={data} categoria="tv" loandig={loandig} error={error} />
       ) : (
         <MovieMasValoradas/>
       )}

@@ -1,7 +1,7 @@
 import { getCreditos } from "./getCreditos";
 import { IMAGE_PAHT } from "../../config/config";
 import { useEffect, useRef, useState } from "react";
-import ButtonSlider from "../Main/Movies/ButtonSlider";
+import ButtonSlider from "../Main/SlideMovies/ButtonSlider";
 import { handelScrollLeft ,handelScrollRigth } from "../../hooks/funtionScroll";
 import { Link } from "react-router-dom";
 import { defaultImg } from "../../config/config";

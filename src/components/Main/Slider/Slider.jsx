@@ -1,5 +1,5 @@
 import { AiFillStar } from "react-icons/ai";
-import { convertirFecha } from "../Movies/convertirFecha";
+import { convertirFecha } from "../SlideMovies/convertirFecha";
 import { getCincoMovies } from "./useGetCincoMovies"; 
 import { useRef } from "react";
 import { Link } from "react-router-dom";
@@ -17,7 +17,7 @@ function Slide() {
   }
   
   return (
-    <div className="relative flex m-auto w-[95%] h-[410px]  mr-7 bg-slate-800 rounded-xl overflow-hidden ">
+    <div className="hidden relative  m-auto w-[95%] h-[410px]  mr-7 bg-slate-800 rounded-xl overflow-hidden md:flex">
       <ul
         ref={slider}
         className="relative  flex snap-x snap-mandatory overflow-hidden  scroll-smooth"

@@ -2,7 +2,7 @@ import { data } from "autoprefixer";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { convertirFecha } from "../Main/Movies/convertirFecha";
+import { convertirFecha } from "../Main/SlideMovies/convertirFecha";
 export function DetailsSeries() {
   const { id } = useParams();
   const API_KEY = "b62c5015964d4fcc4805e0ce64dfd3c4";

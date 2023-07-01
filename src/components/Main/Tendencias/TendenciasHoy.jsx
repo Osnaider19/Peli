@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { GetMoviesTendecias } from "./GetMoviesTendencias";
 import TendenciasSemana from "./TendenciasSemana";
-import Tendencias from "./Tendencias";
+import SlideMovies from "../SlideMovies/SlideMovies";
 
 function TendenciasHoy() {
   const [estado, setEstado] = useState(true);
@@ -51,7 +51,7 @@ function TendenciasHoy() {
         </div>
       </div>
       {estado ? (
-        <Tendencias movies={movies}  loandig={loandig} error={error} />
+        <SlideMovies movies={movies}  loandig={loandig} error={error} />
       ) : (
         <TendenciasSemana />
       )}

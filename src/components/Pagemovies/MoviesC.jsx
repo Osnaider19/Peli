@@ -1,5 +1,5 @@
-import { convertirFecha, roundedStar } from "../Main/Movies/convertirFecha";
-import Loader from "../Main/Movies/Loader";
+import { convertirFecha, roundedStar } from "../Main/SlideMovies/convertirFecha";
+import Loader from "../Main/SlideMovies/Loader";
 import { AiFillStar } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { useRef } from "react";
@@ -18,19 +18,19 @@ export function MoviesC({ movies, loading, error, page, setPage }) {
           {error && <h4> Erros : {error}</h4>}
           <ul
             ref={refContentMovie}
-            className="flex gap-2 relative flex-wrap w-full justify-between scroll-smooth "
+            className="flex gap-2 relative flex-wrap w-full justify-center scroll-smooth md:justify-between"
           >
             {movies?.map((movie) => (
               <li
                 key={movie.id}
-                className="overflow-hidden rounded-lg max-w-[200px] min-w-[200px]"
+                className="overflow-hidden max-w-[150px] min-w-[150px] rounded-lg md:max-w-[200px] md:min-w-[200px]"
               >
                 <Link to={`/movie/${movie.id}`}>
-                  <div className="relative w-full min-h-[250px] overflow-hidden">
+                  <div className="relative w-full min-h-[200px] md:min-h-[250px] overflow-hidden">
                     <img
                       src={`${IMAGE_PAHT + movie.poster_path}`}
                       alt={movie.title}
-                      className="block w-full max-h-[250px]   object-cover  hover:scale-105 transition duration-100"
+                      className="block w-full max-h-[200px] md:max-h-[250px]   object-cover  hover:scale-105 transition duration-100"
                     />
                   </div>
                 </Link>
