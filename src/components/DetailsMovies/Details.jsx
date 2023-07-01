@@ -13,27 +13,17 @@ import Footer from "../Footer/Footer";
 import { convertirDuration } from "../Main/Movies/convertirFecha";
 
 export function Details() {
-  
   const { id } = useParams();
   const Url = `${URL}/movie/${id}`;
   const { details, loader, error } = getDetailsMovies(Url);
-  document.title = `${details.title} - Movie Tv` ;
+
+  document.title = `${details.title} - Movie Tv`;
+
   useEffect(() => {
+
     window.scrollTo(0, 0);
   }, [id]);
-  const backDrop = {
-    position: "absolute",
-    top: "0px",
-    let: "0px",
-    backgroundImage: `url(${IMAGE_PAHT + details.poster_path})`,
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-    backgroundPosition: "left calc((50vw - 170px) - 340px) top",
-    width: "100%",
-    height: "100%",
-    zIndex: "1",
-    opacity: ".2",
-  };
+  
   return (
     <>
       <div className="relative pt-[75px] w-[95%] m-auto text-white">
@@ -41,7 +31,6 @@ export function Details() {
         {loader && <Loader />}
         <div>
           <div className="relative w-full rounded-lg flex overflow-hidden">
-            {/*<div style={backDrop}></div> */}
             <div className="overflow-hidden rounded-xl min-w-[340px] block min-h-[510px] max-w-[340px] max-h-[510px] z-10">
               {
                 <img
@@ -80,17 +69,17 @@ export function Details() {
 
               <p className="pb-2 font-bold text-xl">Vista general</p>
               <p className="text-ms">{details.overview}</p>
-              <div className="flex py-2 gap-2"> 
-              <p className="font-bold">Estreno : </p>
-              <p className=" text-ms">
-                {convertirFecha(
-                  `${
-                    details.release_date
-                      ? details.release_date
-                      : details.first_air_date
-                  }`
-                )}
-              </p>
+              <div className="flex py-2 gap-2">
+                <p className="font-bold">Estreno : </p>
+                <p className=" text-ms">
+                  {convertirFecha(
+                    `${
+                      details.release_date
+                        ? details.release_date
+                        : details.first_air_date
+                    }`
+                  )}
+                </p>
               </div>
               <div className="flex  items-center gap-2">
                 <i className="text-4xl text-yellow-400">
@@ -107,7 +96,9 @@ export function Details() {
 
               <div>
                 <div className="text-sm font-bold">Titulo original</div>
-                <span className="block py-1 text-ms">{details.original_title}</span>
+                <span className="block py-1 text-ms">
+                  {details.original_title}
+                </span>
               </div>
               <div className="flex gap-7 justify-between">
                 <div>

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { API_KEY } from "../../config/config";
 
-  const API_KEY = "b62c5015964d4fcc4805e0ce64dfd3c4";
- export function getCategorias(url) {
+  export function getCategorias(url) {
     const [categorias, setCategorias] = useState([]);
     const [loader , setLoader] = useState(true);
     const [error , setError] = useState(null);
@@ -15,7 +15,6 @@ import axios from "axios";
               language : 'es',
             },
           });
-         
           setCategorias(response.data.genres);
           setLoader(false);
         } catch (error) {

@@ -75,6 +75,7 @@ html::-webkit-scrollbar-thumb{
 .scroll-bottom::-webkit-scrollbar{
   background-color: rgba(15, 23, 42 , .9);
   width: 2px;
+  height: 7px;
 }
 .scroll-bottom::-webkit-scrollbar-thumb{
   background-color: rgba(78, 86, 102, 0.7);

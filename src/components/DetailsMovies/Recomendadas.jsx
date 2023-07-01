@@ -34,11 +34,6 @@ export function Recomendadas(props) {
               />
             </Link> 
             <p className="text-ms px-2 font-bold">{movie.title}</p>
-            {/*<div className="relative gap-2 pt-1 flex items-center px-2">
-              <i className="text-yellow-400"><AiFillStar/></i>
-              <p>{roundedStar(movie.vote_average)}</p>
-              </div> 
-            */}
           </li>
         ))}
         {console.log(data)}

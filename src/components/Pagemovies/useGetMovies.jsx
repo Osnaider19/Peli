@@ -1,29 +1,32 @@
-import { useEffect, useState } from "react";
 import axios from "axios";
+import { API_KEY } from "../../config/config";
+import { useEffect, useState } from "react";
 
- export function useGetMovies(url) {
-
-  const API_KEY = "b62c5015964d4fcc4805e0ce64dfd3c4";
+export function GetMovies(url , page ) {
   const [movies, setMovies] = useState([]);
-  const [loandig, setLoanding] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  
   useEffect(() => {
-    const getMovies = async () => {
+    const fetchData = async () => {
       try {
         const response = await axios.get(url, {
           params: {
             api_key: API_KEY,
+            language: "es",
           },
         });
-        setMovies(response.data.results);
-        setLoanding(false);
+        const newData = response.data.results;
+        setMovies([...movies, ...newData]);
+        setLoading(false);
       } catch (error) {
-        setError(error);
-        setLoanding(true);
+        setError(error.message);
+        setLoading(false);
       }
     };
+    fetchData();
+  }, [page , url]);
+  return { movies, loading, error , setMovies};
 
-    getMovies();
-  }, []);
-  return { movies, loandig, error };
+  
 }
