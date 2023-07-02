@@ -46,7 +46,22 @@ html::-webkit-scrollbar-thumb{
     display: -webkit-box;
     overflow: hidden;
     text-overflow: ellipsis;
-    letter-spacing: 1px;
+    
+  }
+
+  .container-actor-movies{
+    display:  -webkit-inline;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .container-actor-movies span{
+    -webkit-line-clamp: 
+  1; 
+    -webkit-box-orient: vertical;
+    display: -webkit-inline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
   }
 
   /*hacer que aparezcan los botones de el slider de proximas peliculas*/

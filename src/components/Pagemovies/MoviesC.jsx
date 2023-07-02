@@ -1,20 +1,20 @@
 import { convertirFecha, roundedStar } from "../Main/SlideMovies/convertirFecha";
-import Loader from "../Main/SlideMovies/Loader";
 import { AiFillStar } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { useRef } from "react";
+import LoaderMovies from "./LoaderMovies";
+import { IMAGE_PAHT } from "../../config/config";
 
-export function MoviesC({ movies, loading, error, page, setPage }) {
+export function MoviesC({ movies, loading, error, page, setPage , title }) {
 
-  const IMAGE_PAHT = "https://image.tmdb.org/t/p/w500/";
   const refContentMovie = useRef();
   
   return (
     <>
       <div className="relative w-[95%] text-white m-auto">
-        <h2 className="text-2xl py-3 font-bold">Películas Populares</h2>
+        <h2 className="text-2xl py-3 font-bold">{title}</h2>
         <div className="w-full relative h-full">
-          {loading && <Loader />}
+          {loading && <LoaderMovies/>}
           {error && <h4> Erros : {error}</h4>}
           <ul
             ref={refContentMovie}
@@ -25,7 +25,7 @@ export function MoviesC({ movies, loading, error, page, setPage }) {
                 key={movie.id}
                 className="overflow-hidden max-w-[150px] min-w-[150px] rounded-lg md:max-w-[200px] md:min-w-[200px]"
               >
-                <Link to={`/movie/${movie.id}`}>
+                <Link to={`${movie.id}`}>
                   <div className="relative w-full min-h-[200px] md:min-h-[250px] overflow-hidden">
                     <img
                       src={`${IMAGE_PAHT + movie.poster_path}`}

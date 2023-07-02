@@ -34,11 +34,11 @@ function Header() {
           ></div>
         </div>
       </button>
-      <div className="relative flex items-center  justify-end px-4 md:justify-start md:px-3 md:flex-grow text-[#E2E8F0]">
+      <div className="hidden relative  items-center  justify-end px-4 md:justify-start md:px-3 md:flex-grow text-[#E2E8F0] md:flex">
         <i className="text-3xl text-[#d9254c]">
           <RiMovieFill />
         </i>
-        <h1 className="text-3xl px-2 font-bold text-center">Movies.tv</h1>
+        <h1 className="text-3xl px-2 font-bold text-center ">Movies.tv</h1>
       </div>
       <div
         className="fixed justify-start z-[9999] bg-[#0f172a] top-[70px] -left-[400px]  px-3  h-full transition-all duration-300 md:relative md:left-0 md:flex md:top-0"

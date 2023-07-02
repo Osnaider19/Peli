@@ -1,6 +1,6 @@
 import { getCreditos } from "./getCreditos";
 import { IMAGE_PAHT } from "../../config/config";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import ButtonSlider from "../Main/SlideMovies/ButtonSlider";
 import { handelScrollLeft ,handelScrollRigth } from "../../hooks/funtionScroll";
 import { Link } from "react-router-dom";
@@ -31,19 +31,19 @@ export function Creditos({id}) {
           />
           <ul
             ref={refSlider}
-            className="relative  scroll-smooth flex overflow-hidden gap-3 justify-between "
+            className="relative  scroll-smooth flex overflow-x-scroll gap-3 justify-between md:overflow-hidden"
           >
             
             {cast ? (
              cast.map((actor) => (
                 <li
                   key={actor.id}
-                  className="rounded-xl overflow-hidden w-auto max-w-[210px] min-w-[210px]"
+                  className="rounded-xl overflow-hidden min-w-[150px]  md:max-w-[210px] md:min-w-[210px]"
                 >
                   <img
                     src={actor.profile_path ? `${IMAGE_PAHT + actor.profile_path}` : defaultImg }
                     alt={actor.name}
-                    className="block w-full min-h-[250px] max-h-[250px] object-cover"
+                    className="block w-full min-h-[200px] min-w-[150px] object-cover md:min-h-[250px] md:max-h-[250px]"
                   />
                   <div>{actor.character}</div>
                   <span className="text-ms font-bold ">{actor.name}</span>
@@ -57,7 +57,7 @@ export function Creditos({id}) {
             </div>
           </ul>
         </div>
-        {console.log(cast )}
+        {console.log(creditos)}
         {console.log(id)}
       </div>
     </>

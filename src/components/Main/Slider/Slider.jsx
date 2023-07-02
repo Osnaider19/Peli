@@ -17,7 +17,7 @@ function Slide() {
   }
   
   return (
-    <div className="hidden relative  m-auto w-[95%] h-[410px]  mr-7 bg-slate-800 rounded-xl overflow-hidden md:flex">
+    <div className="hidden relative  m-auto w-[95%] h-[410px]  mr-7 bg-slate-800 rounded-xl overflow-hidden sm:flex">
       <ul
         ref={slider}
         className="relative  flex snap-x snap-mandatory overflow-hidden  scroll-smooth"
@@ -39,7 +39,7 @@ function Slide() {
             <div className="text-white  relative pt-20 px-9 z-20">
               <p className="text-3xl">{movie.title}</p>
               <div className="container-description">
-                <p className="text-ms w-[50%] py-1 ">{movie.overview}</p>
+                <p className="text-ms md:w-[50%] py-1 ">{movie.overview}</p>
               </div>
               <div className="">
               <p className="py-1 inline-block"> {convertirFecha(

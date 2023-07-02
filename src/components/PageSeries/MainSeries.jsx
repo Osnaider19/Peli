@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { URL } from "../../config/config";
-import { GetMovies } from "./useGetMovies";
-import { MoviesC } from "./MoviesC";
-import GenresName from "../PageGenres/GenresName";
+import { GetMovies } from "../Pagemovies/useGetMovies";
+import { MoviesC } from "../Pagemovies/MoviesC";
+import GenresSeries from "./GenresSeries";
 
-export default function Movies() {
+export default function MainSeries() {
   const [page, setPage] = useState(1);
-  const [idGenres, setIdGenres] = useState(28);
+  const [idGenres, setIdGenres] = useState(10759);
   const Url = `${URL}/movie/popular?&page=${page}`;
-  const UrlB = `${URL}/discover/movie?with_genres=${idGenres}&page=${page}`;
+  const UrlB = `${URL}/discover/tv?with_genres=${idGenres}&page=${page}`;
   const { movies, loading, error, setMovies, setLoading } = GetMovies(
     UrlB,
     page
@@ -20,7 +20,7 @@ export default function Movies() {
 
   return (
     <>
-      <GenresName
+      <GenresSeries
         setIdGenres={setIdGenres}
         setMovies={setMovies}
         setPage={setPage}
@@ -32,7 +32,7 @@ export default function Movies() {
         error={error}
         page={page}
         setPage={setPage}
-        title="Películas"
+        title="Series"
       />
     </>
   );

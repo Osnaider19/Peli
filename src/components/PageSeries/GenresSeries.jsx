@@ -1,10 +1,10 @@
-import { getCategorias } from "./useCategorias";
+import { getCategorias } from "../PageGenres/useCategorias";
 import { URL } from "../../config/config";
-import { Loader } from "./Loader";
+import { Loader } from "../PageGenres/Loader";
 import { useRef } from "react";
 
-function GenresName({ setIdGenres, setMovies, setPage, setLoading }) {
-  const Url = `${URL}/genre/movie/list?`;
+function GenresSeries({ setIdGenres, setMovies, setPage, setLoading }) {
+  const Url = `${URL}/genre/tv/list?`;
   const { categorias, loader, error } = getCategorias(Url);
   const refButton = useRef();
 
@@ -38,4 +38,4 @@ function GenresName({ setIdGenres, setMovies, setPage, setLoading }) {
   );
 }
 
-export default GenresName;
+export default GenresSeries;

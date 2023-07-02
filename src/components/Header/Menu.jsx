@@ -1,33 +1,28 @@
-import { Link } from "react-router-dom";
+import { NavLink as NavLinkRR } from "react-router-dom";
 
 function Menu() {
+
+  const NavLink = ({ to, children, ...props }) => {
+    return (
+      <NavLinkRR
+        {...props}
+        className={({ isActive }) =>
+          isActive ? "font-bold " : undefined
+        }
+        to={to}
+      >
+        {children}
+      </NavLinkRR>
+    );
+  };
+
   return (
     <>
-      <div className="relative flex flex-col w-48 justify-center items-center gap-3 pr-4 md:flex-row md:mr-7">
-        <Link
-          to="/"
-          className="w-full text-center py-3 text-sm  text-slate-200"
-        >
-          Inicio
-        </Link>
-        <Link
-          to="/movies"
-          className="w-full text-center py-3 text-sm  text-slate-200 "
-        >
-          Pelícilas
-        </Link>
-        <Link
-          href=""
-          className="w-full text-center py-3 text-sm  text-slate-200"
-        >
-          Series
-        </Link>
-        <Link
-          href=""
-          className="w-full text-center py-3 text-sm  text-slate-200"
-        >
-          Actores
-        </Link>
+      <div className="text-white relative flex flex-col w-48 justify-center items-center gap-3 pr-4 md:flex-row md:mr-7">
+        <NavLink to="/">Inicio</NavLink>
+        <NavLink to="/movie">Pelícilas</NavLink>
+        <NavLink to="/tv">Series</NavLink>
+        <NavLink to="/person">Actores</NavLink>
       </div>
     </>
   );
