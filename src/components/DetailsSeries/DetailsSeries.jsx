@@ -1,73 +1,153 @@
-import { data } from "autoprefixer";
-import axios from "axios";
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { convertirFecha } from "../Main/SlideMovies/convertirFecha";
+import { getDetailsSerie } from "./getDetailsSerie";
+import { IMAGE_PAHT } from "../../config/config";
+import {
+  convertirDuration,
+  convertirFecha,
+  roundedStar,
+} from "../Main/SlideMovies/convertirFecha";
+import { MdOutlineStar } from "react-icons/md";
+import { useEffect } from "react";
+import CreditosSerie from "./CreditosSerie";
+import { acronimoAIdioma } from "../../hooks/useIdiomas";
 export function DetailsSeries() {
+
   const { id } = useParams();
-  const API_KEY = "b62c5015964d4fcc4805e0ce64dfd3c4";
   const Url = `https://api.themoviedb.org/3/tv/${id}?language=es`;
-  const IMAGE_PAHT = "https://image.tmdb.org/t/p/w500/";
+  const { details, error, loader } = getDetailsSerie(Url);
+  
+  document.title = details.name ? details.name + " - Movie Tv" : "Movie Tv";
 
-  function getDetailsMovies(url) {
-    const [details, setDetails] = useState([]);
-    const [error, setError] = useState(null);
-    useEffect(() => {
-      const getDetails = async () => {
-        try {
-          const response = await axios.get(url, {
-            params: {
-              api_key: API_KEY,
-            },
-          });
-          setDetails(response.data);
-        } catch (error) {
-          setError(error);
-        }
-      };
-      getDetails();
-    }, [url]);
-
-    return { details };
-  }
-
-  const { details } = getDetailsMovies(Url);
-
-  console.log(details);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
-    <div className="relative top-[75px] w-[95%] m-auto text-white">
-      <div className={`bg-[url('${IMAGE_PAHT + details.poster_path}')]`}>
-        <div className="flex">
-          <div className="overflow-hidden rounded-xl min-w-[340px] block min-h-[510px] max-w-[340px] max-h-[510px]">
-            <img
-              src={`${IMAGE_PAHT + details.poster_path}`}
-              alt=""
-              className="w-full object-cover hover:blur"
-            />
-          </div>
-          <div className="px-5">
-            <div>
-              <h1 className="py-2 font-bold text-3xl">{details.title ? details.title : details.name}</h1>
-              <p>{details.genres?.map((genre) =>{
-                console.log(genre.name);
-              })}</p>
+    <>
+      <div className="relative pt-[90px] w-[95%] m-auto text-white">
+        {console.log(details)}
+        <div className="relative w-full rounded-lg flex flex-col  overflow-hidden md:flex-row md:gap-3">
+          <div className="w-full py-4 md:w-auto md:py-0">
+            <div className="overflow-hidden rounded-xl h-[300px] w-[250px] md:min-w-[340px] block md:min-h-[510px] md:max-w-[340px] md:max-h-[510px] z-10">
+              {
+                <img
+                  loading="lazy"
+                  src={`${IMAGE_PAHT + details.poster_path}`}
+                  alt={details.title}
+                  className="w-full object-cover"
+                />
+              }
             </div>
-            <p>
-              <span></span>
-            </p>
-            <p className="py-2 font-bold text-xl">Descripción</p>
-            <p className="">{details.overview}</p>
-            <p className="py-2 text-xl">
-              {convertirFecha(
-                `${
-                  details.release_date ? details.release_date : details.first_air_date
-                }`
-              )}
-            </p>
+          </div>
+          <div>
+            <div>
+              <h1 className="font-bold text-3xl py-3 md:py-0">
+                {details.name}
+              </h1>
+            </div>
+
+            <div className="flex flex-col md:flex-row md:items-center">
+              <div className="flex  gap-[3px] py-1">
+                {details.genres ? (
+                  details.genres.map((genre) => (
+                    <span key={genre.id} to={`${genre.id}`}>
+                      <span className="text-ms font-bold hover:opacity-80">
+                        {genre.name},
+                      </span>
+                    </span>
+                  ))
+                ) : (
+                  <h4>Cargando</h4>
+                )}
+              </div>
+            </div>
+            {details.tagline ? (
+              <div>
+                <p className="mt-1">{details.tagline}</p>
+              </div>
+            ) : (
+              ""
+            )}
+
+            <div>
+              <p className="font-bold py-1">Primer fecha de emisión </p>
+              <span>
+                {convertirFecha(
+                  `${details.first_air_date ? details.first_air_date : 0}`
+                )}
+              </span>
+            </div>
+
+            <div>
+              <p className="text-xl font-bold py-2">Vista general</p>
+              <p>{details.overview}</p>
+            </div>
+
+            <div>
+              <p className="font-bold pt-2 pb-1">última fecha de emisión</p>
+              <p>
+                {convertirFecha(
+                  `${details.last_air_date ? details.last_air_date : 0}`
+                )}
+              </p>
+            </div>
+
+            <div className="flex  items-center gap-2 pt-2">
+              <i className="text-4xl text-yellow-400">
+                <MdOutlineStar />
+              </i>
+              <span className="text-xl">
+                {roundedStar(details.vote_average ? details.vote_average : 0)}
+              </span>
+            </div>
+            <div>
+              <p className="text-ms font-bold">Idioma original</p>
+              <p>{acronimoAIdioma(details.original_language)}</p>
+            </div>
+            <div>
+              <p className="font-bold">titulo original</p>
+              <p>{details.original_name}</p>
+            </div>
           </div>
         </div>
+        <div className="py-3">
+          <p className="font-bold text-xl pb-2">Último episodio</p>
+          {details.last_episode_to_air ? (
+            <div className="flex gap-3">
+              <div className="rounded-lg overflow-hidden max-w-[200px]">
+                <img
+                  src={IMAGE_PAHT + details.last_episode_to_air.still_path}
+                  alt={details.last_episode_to_air.name}
+                  className="w-[200px] h-[230px] object-cover"
+                />
+              </div>
+              <div>
+                <p className="text-xl font-bold ">
+                  {details.last_episode_to_air.name}
+                </p>
+                <p className="w-[80%]">
+                  {details.last_episode_to_air.overview}
+                </p>
+                <p className="font-bold">Episodio numero</p>
+                <p>{details.last_episode_to_air.episode_number}</p>
+                <div>
+                  <p className="font-bold">Duración</p>
+                  <p>
+                    {convertirDuration(details.last_episode_to_air.runtime)}
+                  </p>
+                </div>
+                <div>
+                  <p className="font-bold">Temporada</p>
+                  <p>{details.last_episode_to_air.season_number}</p>
+                </div>
+              </div>
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
       </div>
-    </div>
+      <CreditosSerie id={id} />
+    </>
   );
 }

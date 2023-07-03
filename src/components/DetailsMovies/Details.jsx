@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import {
   convertirFecha,
   roundedStar,
@@ -15,6 +15,7 @@ import { Recomendadas } from "./Recomendadas";
 import Footer from "../Footer/Footer";
 import { convertirDuration } from "../Main/SlideMovies/convertirFecha";
 import { IMAGE_PAHT_GRANDE } from "../../config/config";
+import { acronimoAIdioma } from "../../hooks/useIdiomas";
 export function Details() {
   const { id } = useParams();
   const Url = `${URL}/movie/${id}`;
@@ -30,7 +31,7 @@ export function Details() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [id]);
+  }, [Url]);
 
   return (
     <>
@@ -39,8 +40,7 @@ export function Details() {
         {loader && <Loader />}
         <div>
           <div className="relative w-full rounded-lg flex flex-col  overflow-hidden md:flex-row md:">
-            <div
-              className="w-full py-4 md:w-auto md:py-0" >
+            <div className="w-full py-4 md:w-auto md:py-0">
               <div className="overflow-hidden rounded-xl h-[300px] w-[250px] md:min-w-[340px] block md:min-h-[510px] md:max-w-[340px] md:max-h-[510px] z-10">
                 {
                   <img
@@ -107,7 +107,9 @@ export function Details() {
               </div>
               <div>
                 <div className="text-ms font-bold">Idioma original</div>
-                <span className="block py-1">{details.original_language}</span>
+                <span className="block py-1">
+                  {acronimoAIdioma(details.original_language)}
+                </span>
               </div>
 
               <div>
@@ -127,7 +129,6 @@ export function Details() {
               </div>
             </div>
           </div>
-          
         </div>
         <Creditos id={id} />
         <ModalTrailer id={id} />

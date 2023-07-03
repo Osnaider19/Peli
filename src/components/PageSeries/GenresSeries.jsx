@@ -1,12 +1,14 @@
 import { getCategorias } from "../PageGenres/useCategorias";
 import { URL } from "../../config/config";
 import { Loader } from "../PageGenres/Loader";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 function GenresSeries({ setIdGenres, setMovies, setPage, setLoading }) {
   const Url = `${URL}/genre/tv/list?`;
   const { categorias, loader, error } = getCategorias(Url);
   const refButton = useRef();
+
+  
 
   return (
     <article className="relative pt-[70px] block h-auto z-10 bg-[#0f172a] left-0  mt-1 overflow-y-hidden transition hover:overflow-y-auto scroll-categories md:h-[100vh] md:w-48 md:pb-28 md:top-[56px] md:fixed md:left-0 md:pt-0">

@@ -1,27 +1,23 @@
-import { getCreditos } from "./getCreditos";
-import { IMAGE_PAHT } from "../../config/config";
-import { useEffect, useRef } from "react";
-import ButtonSlider from "../Main/SlideMovies/ButtonSlider";
 import { handelScrollLeft, handelScrollRigth } from "../../hooks/funtionScroll";
-import { Link } from "react-router-dom";
 import { defaultImg } from "../../config/config";
+import { URL } from "../../config/config";
+import { getCreditos } from "../DetailsMovies/getCreditos";
+import ButtonSlider from "../Main/SlideMovies/ButtonSlider";
+import { useRef } from "react";
+import { Link } from "react-router-dom";
+import { IMAGE_PAHT } from "../../config/config";
+export default function CreditosSerie({ id }) {
+  const Url = `https://api.themoviedb.org/3/tv/${id}/credits?`;
 
-export function Creditos({ id }) {
-  const Url = `https://api.themoviedb.org/3/movie/${id}/credits?`;
-
-  const { creditos, error, loader } = getCreditos(Url, id);
+  const { creditos, error, loader } = getCreditos(Url);
   const cast = creditos.cast?.slice(0, 15);
   const refSlider = useRef();
-
-  useEffect(() => {
-    refSlider.current.scrollLeft = 0;
-  }, [id]);
 
   return (
     <>
       {error && <h3>Error {error}</h3>}
       {loader && <h3>Cargando</h3>}
-      <div className="py-3 ">
+      <div className="relative py-3 text-white w-[95%] m-auto">
         <h2 className="py-2 text-xl font-bold">Reparto principal</h2>
         <div className="w-full py-3 relative h-full slider-movie">
           <ButtonSlider
@@ -34,7 +30,7 @@ export function Creditos({ id }) {
           />
           <ul
             ref={refSlider}
-            className="relative  scroll-smooth flex overflow-x-scroll gap-3 justify-between md:overflow-hidden"
+            className="relative  scroll-smooth flex overflow-x-scroll gap-3 md:overflow-hidden"
           >
             {cast ? (
               cast.map((actor) => (

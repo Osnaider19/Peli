@@ -3,7 +3,7 @@ import Footer from "../../components/Footer/Footer";
 import  MainSeries  from "../../components/PageSeries/MainSeries";
 
 export function Series() {
-  document.title = "Series Populares";
+  document.title = "Series - Movie Tv" ;
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
