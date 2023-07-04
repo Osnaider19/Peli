@@ -89,7 +89,9 @@ html::-webkit-scrollbar-thumb{
 .loader-animation{
   animation: Loader .7s infinite alternate;
 }
- 
+.genres-activo{
+  background-color: #1E293B;
+}
 
 .scroll-bottom::-webkit-scrollbar{
   background-color: rgba(15, 23, 42 , .9);

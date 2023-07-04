@@ -3,7 +3,7 @@ import { AiFillStar } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { useRef } from "react";
 import LoaderMovies from "./LoaderMovies";
-import { IMAGE_PAHT } from "../../config/config";
+import { IMAGE_PAHT_300 } from "../../config/config";
 
 export function MoviesC({ movies, loading, error, page, setPage , title }) {
 
@@ -28,7 +28,7 @@ export function MoviesC({ movies, loading, error, page, setPage , title }) {
                 <Link to={`${movie.id}`}>
                   <div className="relative w-full min-h-[200px] md:min-h-[250px] overflow-hidden">
                     <img
-                      src={`${IMAGE_PAHT + movie.poster_path}`}
+                      src={`${IMAGE_PAHT_300 + movie.poster_path}`}
                       alt={movie.title}
                       className="block w-full max-h-[200px] md:max-h-[250px]   object-cover  hover:scale-105 transition duration-100"
                     />

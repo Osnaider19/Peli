@@ -2,12 +2,14 @@ import { Link, useParams } from "react-router-dom";
 import { getActor } from "./getActor";
 import {
   IMAGE_PAHT,
-  IMAGE_PAHT_300,
+  IMAGE_PAHT_200,
   URL,
   defaultImg,
 } from "../../config/config";
 import { convertirFecha } from "../Main/SlideMovies/convertirFecha";
 import { getActorCreditos } from "./getActorCreditos";
+import { Redes } from "./Redes";
+import { calcularEdad } from "../../hooks/calcularEdad";
 
 export function DetailsActores() {
   const { id } = useParams();
@@ -16,85 +18,91 @@ export function DetailsActores() {
   );
   const { actor, error, loader } = getActor(`${URL}/person/${id}`);
 
-  function sacarEdad(fecha) {
-    let fechaActual = new Date();
-    let fechaNacimiento = new Date(fecha);
-    let diferencia = fechaActual - fechaNacimiento;
-    let edad = Math.floor(diferencia / (1000 * 60 * 60 * 24 * 365.25));
-    return edad;
-  }
   return (
-    <main className="pt-[90px] text-white">
-      <div className="relative w-[95%] m-auto overflow-hidden">
-        <div className="flex gap-3 pt-6">
-          <div className="relative rounded-lg overflow-hidden min-w-[300px]">
-            <img
-              src={`${IMAGE_PAHT + actor.profile_path}`}
-              alt={actor.name}
-              className="min-w-[300px] h-[450px]"
-            />
-          </div>
-          <div>
-            <h1 className="text-4xl font-bold">{actor.name}</h1>
-            <div>
-              <h2 className="text-xl font-bold pt-3">Biografia</h2>
-              <p className="w-[90%] pt-3">{actor.biography ? actor.biography : '-'}</p>
-            </div>
-            <div>
-              <p className="font-bold pt-2">Fecha de nacimiento</p>
-              <span>
-                {actor.birthday ? convertirFecha(actor.birthday) : "error"}
-                <span> ({sacarEdad(actor.birthday)} Años)</span>
-              </span>
+    <>
+      <main className="pt-[90px] text-white">
+        <div className="relative w-[95%] m-auto overflow-hidden">
+          <div className="flex gap-3 pt-6">
+            <div className="relative rounded-lg overflow-hidden min-w-[300px]">
+              <img
+                src={`${IMAGE_PAHT + actor.profile_path}`}
+                alt={actor.name}
+                className="min-w-[300px] h-[450px]"
+              />
+              <div>
+                <Redes id={id} />
+              </div>
             </div>
 
             <div>
+              <h1 className="text-4xl font-bold">{actor.name}</h1>
               <div>
-                <p className="font-bold pt-2"> Lugar de nacimiento </p>
-                <p>{actor.place_of_birth ? actor.place_of_birth : '-'}</p>
+                <h2 className="text-xl font-bold pt-3">Biografia</h2>
+                <p className="w-[90%] pt-3">
+                  {actor.biography ? actor.biography : "-"}
+                </p>
+              </div>
+              <div>
+                <p className="font-bold pt-2">Fecha de nacimiento</p>
+                <span>
+                  {actor.birthday ? convertirFecha(actor.birthday) : "error"}
+                  <span> ({calcularEdad(actor.birthday)} Años)</span>
+                </span>
+              </div>
+
+              <div>
+                <div>
+                  <p className="font-bold pt-2"> Lugar de nacimiento </p>
+                  <p>{actor.place_of_birth ? actor.place_of_birth : "-"}</p>
+                </div>
               </div>
             </div>
           </div>
+          {console.log(actor)}
+          {console.log(actorCreditos)}
         </div>
-        {console.log(actor)}
-        {console.log(actorCreditos)}
-      </div>
 
-      <div className="w-[95%] m-auto">
-        <h2 className="font-bold text-xl py-3">Interpretaciones </h2>
-        <ul className="relative flex  w-full px-1 flex-wrap gap-2">
-          {actorCreditos.cast
-            ? actorCreditos.cast.map((castMovie) => (
-                <li className="rounded-lg overflow-hidden max-w-[150px] min-w-[150px] list-item">
-                  <Link to={`/${castMovie.media_type}/${castMovie.id}`}>
-                    <div className="min-h-[225px] overflow-hidden">
-                      <img
-                        src={
-                          castMovie.poster_path
-                            ? IMAGE_PAHT_300 + castMovie.poster_path
-                            : defaultImg
-                        }
-                        alt={castMovie.title ? castMovie.title : castMovie.name}
-                        className="w-[150px] max-h-[225px] min-h-[225px] object-cover hover:scale-110 transition-transform duration-200"
-                      />
-                    </div>
-                  </Link>
-                  <p className="font-bold">
-                    {castMovie.title ? castMovie.title : castMovie.name}
-                  </p>
-                  {castMovie.character ? (
-                    <div>
-                      <p className="inline-block font-bold">como : </p>
-                      <span> {castMovie.character}</span>
-                    </div>
-                  ) : (
-                    ""
-                  )}
-                </li>
-              ))
-            : ""}
-        </ul>
-      </div>
-    </main>
+        <div className="w-[95%] m-auto">
+          <h2 className="font-bold text-xl py-3">Interpretaciones </h2>
+          <ul className="relative flex  w-full px-1 flex-wrap gap-2">
+            {actorCreditos.cast
+              ? actorCreditos.cast.map((castMovie) => (
+                  <li
+                    key={castMovie.id}
+                    className="rounded-lg overflow-hidden max-w-[150px] min-w-[150px] list-item"
+                  >
+                    <Link to={`/${castMovie.media_type}/${castMovie.id}`}>
+                      <div className="min-h-[225px] overflow-hidden">
+                        <img
+                          src={
+                            castMovie.poster_path
+                              ? IMAGE_PAHT_200 + castMovie.poster_path
+                              : defaultImg
+                          }
+                          alt={
+                            castMovie.title ? castMovie.title : castMovie.name
+                          }
+                          className="w-[150px] max-h-[225px] min-h-[225px] object-cover hover:scale-110 transition-transform duration-200"
+                        />
+                      </div>
+                    </Link>
+                    <p className="font-bold">
+                      {castMovie.title ? castMovie.title : castMovie.name}
+                    </p>
+                    {castMovie.character ? (
+                      <div>
+                        <p className="inline-block font-bold">como : </p>
+                        <span> {castMovie.character}</span>
+                      </div>
+                    ) : (
+                      ""
+                    )}
+                  </li>
+                ))
+              : ""}
+          </ul>
+        </div>
+      </main>
+    </>
   );
 }

@@ -24,5 +24,5 @@ export function getDetailsMovies(url) {
     getDetails();
   }, [url]);
 
-  return { details , loader , error  };
+  return { details , loader , error , setLoader };
 }

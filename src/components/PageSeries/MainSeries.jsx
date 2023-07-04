@@ -3,6 +3,7 @@ import { URL } from "../../config/config";
 import { GetMovies } from "../Pagemovies/useGetMovies";
 import { MoviesC } from "../Pagemovies/MoviesC";
 import GenresSeries from "./GenresSeries";
+import LoaderMovies from "../Pagemovies/LoaderMovies";
 
 export default function MainSeries() {
   const [page, setPage] = useState(1);
@@ -19,6 +20,7 @@ export default function MainSeries() {
   }, []);
 
   return (
+    
     <>
       <GenresSeries
         setIdGenres={setIdGenres}

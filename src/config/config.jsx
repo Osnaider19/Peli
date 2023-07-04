@@ -7,4 +7,5 @@ export const defaultImg = 'https://www.themoviedb.org/assets/2/v4/glyphicons/bas
 
 export const IMAGE_ACTORES = "https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-36-user-female-grey-d9222f16ec16a33ed5e2c9bbdca07a4c48db14008bbebbabced8f8ed1fa2ad59.svg"
 
-export const IMAGE_PAHT_300 = "https://image.tmdb.org/t/p/w200/";
+export const IMAGE_PAHT_200 = "https://image.tmdb.org/t/p/w200/";
+export const IMAGE_PAHT_300 = "https://image.tmdb.org/t/p/w300/";

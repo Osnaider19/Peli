@@ -1,5 +1,5 @@
 import { getCreditos } from "./getCreditos";
-import { IMAGE_PAHT } from "../../config/config";
+import { IMAGE_PAHT_300 } from "../../config/config";
 import { useEffect, useRef } from "react";
 import ButtonSlider from "../Main/SlideMovies/ButtonSlider";
 import { handelScrollLeft, handelScrollRigth } from "../../hooks/funtionScroll";
@@ -20,7 +20,7 @@ export function Creditos({ id }) {
   return (
     <>
       {error && <h3>Error {error}</h3>}
-      {loader && <h3>Cargando</h3>}
+      {loader && ''}
       <div className="py-3 ">
         <h2 className="py-2 text-xl font-bold">Reparto principal</h2>
         <div className="w-full py-3 relative h-full slider-movie">
@@ -46,7 +46,7 @@ export function Creditos({ id }) {
                     <img
                       src={
                         actor.profile_path
-                          ? `${IMAGE_PAHT + actor.profile_path}`
+                          ? `${IMAGE_PAHT_300 + actor.profile_path}`
                           : defaultImg
                       }
                       alt={actor.name}
@@ -58,7 +58,7 @@ export function Creditos({ id }) {
                 </li>
               ))
             ) : (
-              <h4>Cargando</h4>
+              ''
             )}
             <div className="flex items-center justify-center min-h-[250px] max-h-[250px] max-w-[210px] min-w-[210px]">
               <Link className="font-bold text-xl">Ver más</Link>
