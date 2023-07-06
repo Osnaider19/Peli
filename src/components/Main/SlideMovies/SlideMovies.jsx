@@ -4,7 +4,7 @@ import Loader from "./Loader";
 import { convertirFecha, roundedStar } from "./convertirFecha";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
-import { IMAGE_PAHT } from "../../../config/config";
+import { IMAGE_PAHT_300 } from "../../../config/config";
 import {
   handelScrollLeft,
   handelScrollRigth,
@@ -45,7 +45,7 @@ export default function SlideMovies(props) {
               >
                 <div className="relative w-full min-h-[225px] overflow-hidden md:min-w-[210px]">
                   <img
-                    src={`${IMAGE_PAHT + movie.poster_path}`}
+                    src={`${IMAGE_PAHT_300 + movie.poster_path}`}
                     alt={movie.title}
                     className="block w-full max-h-[250px] object-cover  hover:scale-105 transition duration-100 md:min-w-[210px]"
                   />

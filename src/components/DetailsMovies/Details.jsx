@@ -17,6 +17,7 @@ import { IMAGE_PAHT_GRANDE } from "../../config/config";
 import { acronimoAIdioma } from "../../hooks/useIdiomas";
 import LoaderDetails from "../Loaders/LoaderDetails";
 export function Details() {
+  const [play , setPlay] = useState(false); //para ver si se muestra el modal de trailer
   const { id } = useParams();
   const Url = `${URL}/movie/${id}`;
   const { details, loader, error , setLoader } = getDetailsMovies(Url);
@@ -126,7 +127,8 @@ export function Details() {
                   <div className="flex gap-7 justify-between">
                     <div>
                       <div className="py-3">
-                        <button className="py-2 px-3 font-bold rounded-lg bg-[#d9254c]">
+                        <button onClick={()=>{setPlay(true)}}
+                        className="py-2 px-3 font-bold rounded-lg bg-[#d9254c]">
                           Ver Tailer
                         </button>
                       </div>
@@ -136,7 +138,7 @@ export function Details() {
               </div>
             </div>
             <Creditos id={id} />
-            <ModalTrailer id={id} />
+            {play ? <ModalTrailer id={id} setPlay={setPlay}/> : undefined}
             <Recomendadas id={id} setLoader={setLoader}/>
             {console.log(details)}
           </div>

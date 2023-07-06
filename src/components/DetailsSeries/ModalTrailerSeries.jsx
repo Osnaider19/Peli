@@ -1,9 +1,9 @@
 import { URL } from "../../config/config";
-import { getVideos } from "./getVideos";
+import { getVideos } from "../DetailsMovies/getVideos";
 import YouTube from "react-youtube";
 
-export default function ModalTrailer({ id, setPlay }) {
-  const Url = `${URL}/movie/${id}/videos`;
+export default function ModalTrailerSeries({ id, setPlay }) {
+  const Url = `${URL}/tv/${id}/videos`;
   const { videos , allData} = getVideos(Url);
 
   return (

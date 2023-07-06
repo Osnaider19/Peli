@@ -12,8 +12,11 @@ import CreditosSerie from "./CreditosSerie";
 import { acronimoAIdioma } from "../../hooks/useIdiomas";
 import LoaderDetails from "../Loaders/LoaderDetails";
 import { SeriesRecomendadas } from "./SeriesRecomendadas";
+import { useState } from "react";
 import Footer from "../Footer/Footer";
+import ModalTrailerSeries from "./ModalTrailerSeries";
 export function DetailsSeries() {
+  const [play, setPlay] = useState(false); //para ver si se muestra el modal de trailer
   const { id } = useParams();
   const Url = `https://api.themoviedb.org/3/tv/${id}?language=es`;
   const { details, error, loader, setLoader } = getDetailsSerie(Url);
@@ -99,16 +102,29 @@ export function DetailsSeries() {
                   </p>
                 </div>
 
-                <div className="flex  items-center gap-2 pt-2">
-                  <i className="text-4xl text-yellow-400">
-                    <MdOutlineStar />
-                  </i>
-                  <span className="text-xl">
-                    {roundedStar(
-                      details.vote_average ? details.vote_average : 0
-                    )}
-                  </span>
+                <div className="flex  gap-5 pt-2">
+                  <div className="flex items-center gap-2">
+                    <i className="text-4xl text-yellow-400">
+                      <MdOutlineStar />
+                    </i>
+                    <span className="text-xl">
+                      {roundedStar(
+                        details.vote_average ? details.vote_average : 0
+                      )}
+                    </span>
+                  </div>
+                  <div className="py-1">
+                    <button
+                      onClick={() => {
+                        setPlay(true);
+                      }}
+                      className="py-2 px-3 font-bold rounded-lg bg-[#d9254c]"
+                    >
+                      Ver Tailer
+                    </button>
+                  </div>
                 </div>
+
                 <div>
                   <p className="text-ms font-bold">Idioma original</p>
                   <p>{acronimoAIdioma(details.original_language)}</p>
@@ -122,12 +138,12 @@ export function DetailsSeries() {
             <div className="py-3">
               <p className="font-bold text-xl pb-2">Último episodio</p>
               {details.last_episode_to_air ? (
-                <div className="flex gap-3">
-                  <div className="rounded-lg overflow-hidden max-w-[200px]">
+                <div className="flex gap-3 flex-col md:flex-row">
+                  <div className="rounded-lg overflow-hidden min-w-[200px] max-w-[200px]">
                     <img
                       src={IMAGE_PAHT + details.last_episode_to_air.still_path}
                       alt={details.last_episode_to_air.name}
-                      className="w-[200px] h-[230px] object-cover"
+                      className="min-w-[200px] w-[200px] h-[230px] object-cover"
                     />
                   </div>
                   <div>
@@ -160,7 +176,8 @@ export function DetailsSeries() {
           <div className="text-white py-3 w-[95%] m-auto">
             <SeriesRecomendadas id={id} setLoader={setLoader} />
           </div>
-          <Footer/>
+          <Footer />
+          {play ? <ModalTrailerSeries id={id} setPlay={setPlay} /> : undefined}
         </div>
       )}
     </>

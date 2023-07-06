@@ -23,7 +23,7 @@ export function DetailsActores() {
       <main className="pt-[90px] text-white">
         <div className="relative w-[95%] m-auto overflow-hidden">
           <div className="flex gap-3 pt-6">
-            <div className="relative rounded-lg overflow-hidden min-w-[300px]">
+            <div className="relative rounded-lg overflow-hidden min-w-[300px]" key={actor.id}>
               <img
                 src={`${IMAGE_PAHT + actor.profile_path}`}
                 alt={actor.name}

@@ -6,6 +6,7 @@ export function getVideos(url) {
   const [videos, setVideos] = useState([]);
   const [error, setError] = useState(null);
   const [loader, setLoader] = useState(true);
+  const [allData , setAllData] = useState([])
   useEffect(() => {
     const getVideos = async () => {
       try {
@@ -13,18 +14,24 @@ export function getVideos(url) {
           params: {
             api_key: API_KEY,
             append_to_response : 'videos',
-            language : 'es',
+            language : 'es-MX',
           },
         });
-        setVideos(response);
+        if (response.data.results) {
+          const trailer = response.data.results.find((video) => video.type ===  "Trailer")
+          setVideos(trailer ? trailer : response.data.results[0])
+          {console.log(trailer)}
+        }
+        setAllData(response.data.results);
         setLoader(false)
       } catch (error) {
         setError(error);
         setLoader(true)
       }
     };
+    
     getVideos();
   }, [url]);
 
-  return { videos , error , loader };
+  return { videos , error , loader , allData};
 }

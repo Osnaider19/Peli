@@ -7,6 +7,7 @@ import { TiDeviceDesktop } from "react-icons/ti";
 import { BsPersonCircle } from "react-icons/bs";
 import { AiFillCloseCircle } from "react-icons/ai";
 function InputSearch() {
+  
   const [key, setKey] = useState("");
   const refButtonCerrar = useRef();
   const { data, error, loader } = getSearch(
@@ -28,20 +29,21 @@ function InputSearch() {
             placeholder="Buscar Películas , Series o Actor"
             className="flex items-center py-2  w-40 justify-center outline-none h-8 bg-transparent text-slate-400 text-sm md:w-56"
             onChange={(e) => {
-              setKey(e.target.value);
+              setKey(e.target.value) , setEstadoResults(true);
             }}
           />
         </div>
       </div>
       <div className="fixed  w-full text-white top-[76px] bg-[#0f172a] left-0  z-50">
         <div className="relative flex flex-col  justify-center items-center">
+          
           {key ? (
             <div className="relative flex justify-end w-[90%] m-auto">
               <button
                 className="py-1 px-2"
                 ref={refButtonCerrar}
                 onClick={() => {
-                  setKey("");
+                  setKey(""), setEstadoResults(false);
                 }}
               >
                 <i className="text-2xl hover:opacity-80">
@@ -58,7 +60,7 @@ function InputSearch() {
               to={`/${object.media_type}/${object.id}`}
               key={object.id}
               onClick={() => {
-                setKey("");
+                setKey("") , setEstadoResults(false);
               }}
             >
               <div className="flex border-b py-3 px-3 overflow-hidden">
@@ -98,6 +100,7 @@ function InputSearch() {
               </div>
             </Link>
           ))}
+          
         </div>
       </div>
     </>

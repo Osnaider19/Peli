@@ -56,7 +56,7 @@ export default function MainActores() {
               setPage(page + 1);
             }}
           >
-            Siguiente
+            Ver Más
           </button>
           
         </div>

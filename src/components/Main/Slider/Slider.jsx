@@ -3,9 +3,10 @@ import { convertirFecha } from "../SlideMovies/convertirFecha";
 import { getCincoMovies } from "./useGetCincoMovies"; 
 import { useRef } from "react";
 import { Link } from "react-router-dom";
+import { IMAGE_PAHT_GRANDE } from "../../../config/config";
 
 function Slide() {
-  const IMAGE_PAHT = "https://image.tmdb.org/t/p/original/";
+  
   
   const {movies , loandig , error} = getCincoMovies('https://api.themoviedb.org/3/movie/popular?language=es&page=1')
 
@@ -30,7 +31,7 @@ function Slide() {
             <div className="absolute w-full h-full bg-black/40 z-10 pointer-events-none"></div>
 
             <img
-              src={`${IMAGE_PAHT + movie.backdrop_path}`}
+              src={`${IMAGE_PAHT_GRANDE + movie.backdrop_path}`}
               alt={movie.title}
               className="object-cover h-full w-full absolute "
               loading="lazy"

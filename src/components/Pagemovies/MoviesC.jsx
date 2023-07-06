@@ -67,7 +67,7 @@ export function MoviesC({ movies, loading, error, page, setPage , title }) {
               setPage(page + 1);
             }}
           >
-            Siguiente
+            Ver Más
           </button>
         </div>
       </div>

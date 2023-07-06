@@ -17,7 +17,7 @@ export default function CreditosSerie({ id }) {
     <>
       {error && <h3>Error {error}</h3>}
       {loader && <h3>Cargando</h3>}
-      <div className="relative py-3 text-white w-[95%] m-auto">
+      {cast.length !== 0 ? <div className="relative py-3 text-white w-[95%] m-auto">
         <h2 className="py-2 text-xl font-bold">Reparto principal</h2>
         <div className="w-full py-3 relative h-full slider-movie">
           <ButtonSlider
@@ -60,10 +60,13 @@ export default function CreditosSerie({ id }) {
               <Link className="font-bold text-xl">Ver más</Link>
             </div>
           </ul>
-        </div>
+        </div> 
+        </div>    : <div className="relative w-[95%] m-auto">
+          <p className="py-3 text-xl text-white ">No se han añadido creditos</p>
+        </div> }
         {console.log(creditos)}
         {console.log(id)}
-      </div>
+      
     </>
   );
 }
