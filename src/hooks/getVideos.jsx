@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { API_KEY } from "../../config/config";
+import { API_KEY } from "../config/config";
 import axios from "axios";
 
 export function getVideos(url) {
@@ -13,7 +13,7 @@ export function getVideos(url) {
         const response = await axios.get(url, {
           params: {
             api_key: API_KEY,
-            append_to_response : 'videos',
+            //append_to_response : 'videos',
             language : 'es-MX',
           },
         });

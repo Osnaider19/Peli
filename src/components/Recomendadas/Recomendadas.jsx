@@ -2,8 +2,8 @@ import { IMAGE_PAHT_300, URL } from "../../config/config";
 import { getData } from "../../hooks/useGetData";
 import { Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
-export function SeriesRecomendadas({ id, setLoader }) {
-  const Url = URL + `/tv/${id}/recommendations?`;
+export function Recomendadas({ id, setLoader , type }) {
+  const Url = URL + `/${type}/${id}/recommendations?`;
   const { data } = getData(Url);
   const refSlider = useRef();
 
@@ -22,10 +22,10 @@ export function SeriesRecomendadas({ id, setLoader }) {
         {data?.map((movie) => (
           <li
             key={movie.id}
-            className="max-w-[270px]  min-w-[270px]  overflow-hidden rounded-lg"
+            className="max-w-[270px]   min-w-[270px]  overflow-hidden rounded-lg"
           >
             <Link
-              to={`/tv/${movie.id}`}
+              to={`/${type}/${movie.id}`}
               onClick={() => {
                 setLoader(true);
               }}
@@ -38,7 +38,7 @@ export function SeriesRecomendadas({ id, setLoader }) {
                 />
               </div>
             </Link>
-            <p className="text-ms px-2 font-bold">{movie.name}</p>
+            <p className="text-ms px-2 font-bold">{movie.title ? movie.title : movie.name}</p>
           </li>
         ))}
         {console.log(data)}

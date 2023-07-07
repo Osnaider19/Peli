@@ -29,7 +29,7 @@ function InputSearch() {
             placeholder="Buscar Películas , Series o Actor"
             className="flex items-center py-2  w-40 justify-center outline-none h-8 bg-transparent text-slate-400 text-sm md:w-56"
             onChange={(e) => {
-              setKey(e.target.value) , setEstadoResults(true);
+              setKey(e.target.value);
             }}
           />
         </div>
@@ -43,7 +43,7 @@ function InputSearch() {
                 className="py-1 px-2"
                 ref={refButtonCerrar}
                 onClick={() => {
-                  setKey(""), setEstadoResults(false);
+                  setKey("")
                 }}
               >
                 <i className="text-2xl hover:opacity-80">
@@ -60,7 +60,7 @@ function InputSearch() {
               to={`/${object.media_type}/${object.id}`}
               key={object.id}
               onClick={() => {
-                setKey("") , setEstadoResults(false);
+                setKey("") 
               }}
             >
               <div className="flex border-b py-3 px-3 overflow-hidden">

@@ -9,11 +9,10 @@ import { IMAGE_PAHT } from "../../config/config";
 import { getDetailsMovies } from "./getDetails";
 import { URL } from "../../config/config";
 import { useEffect, useState } from "react";
-import ModalTrailer from "./ModelTrailer";
-import { Recomendadas } from "./Recomendadas";
+import ModalTrailer from "../ModalTrailer/ModalTrailer";
+import { Recomendadas } from "../Recomendadas/Recomendadas";
 import Footer from "../Footer/Footer";
 import { convertirDuration } from "../Main/SlideMovies/convertirFecha";
-import { IMAGE_PAHT_GRANDE } from "../../config/config";
 import { acronimoAIdioma } from "../../hooks/useIdiomas";
 import LoaderDetails from "../Loaders/LoaderDetails";
 export function Details() {
@@ -22,11 +21,7 @@ export function Details() {
   const Url = `${URL}/movie/${id}`;
   const { details, loader, error , setLoader } = getDetailsMovies(Url);
 
-  const backdop = {
-    backgroundSize: "100%",
-    backgroundUrl: `${IMAGE_PAHT_GRANDE + details.poster_path}`,
-    backgroundPosition: "cover",
-  };
+  
 
   document.title = details.title ? `${details.title} - Movie Tv` : `Movie Tv`;
 
@@ -138,8 +133,8 @@ export function Details() {
               </div>
             </div>
             <Creditos id={id} />
-            {play ? <ModalTrailer id={id} setPlay={setPlay}/> : undefined}
-            <Recomendadas id={id} setLoader={setLoader}/>
+            {play ? <ModalTrailer id={id} setPlay={setPlay} type={`movie`}/> : undefined}
+            <Recomendadas id={id} setLoader={setLoader} />
             {console.log(details)}
           </div>
           <Footer />

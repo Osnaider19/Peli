@@ -11,10 +11,10 @@ import { useEffect } from "react";
 import CreditosSerie from "./CreditosSerie";
 import { acronimoAIdioma } from "../../hooks/useIdiomas";
 import LoaderDetails from "../Loaders/LoaderDetails";
-import { SeriesRecomendadas } from "./SeriesRecomendadas";
+import { Recomendadas } from "../Recomendadas/Recomendadas";
 import { useState } from "react";
 import Footer from "../Footer/Footer";
-import ModalTrailerSeries from "./ModalTrailerSeries";
+import ModalTrailer from "../ModalTrailer/ModalTrailer";
 export function DetailsSeries() {
   const [play, setPlay] = useState(false); //para ver si se muestra el modal de trailer
   const { id } = useParams();
@@ -174,10 +174,10 @@ export function DetailsSeries() {
           </div>
           <CreditosSerie id={id} />
           <div className="text-white py-3 w-[95%] m-auto">
-            <SeriesRecomendadas id={id} setLoader={setLoader} />
+            <Recomendadas id={id} setLoader={setLoader} type="tv"/>
           </div>
           <Footer />
-          {play ? <ModalTrailerSeries id={id} setPlay={setPlay} /> : undefined}
+          {play ? <ModalTrailer id={id} setPlay={setPlay} type={`tv`}/> : undefined}
         </div>
       )}
     </>
