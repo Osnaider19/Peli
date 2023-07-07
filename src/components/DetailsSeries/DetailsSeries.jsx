@@ -8,7 +8,7 @@ import {
 } from "../Main/SlideMovies/convertirFecha";
 import { MdOutlineStar } from "react-icons/md";
 import { useEffect } from "react";
-import CreditosSerie from "./CreditosSerie";
+import { Creditos } from "../Creditos/Creditos";
 import { acronimoAIdioma } from "../../hooks/useIdiomas";
 import LoaderDetails from "../Loaders/LoaderDetails";
 import { Recomendadas } from "../Recomendadas/Recomendadas";
@@ -172,9 +172,9 @@ export function DetailsSeries() {
               )}
             </div>
           </div>
-          <CreditosSerie id={id} />
           <div className="text-white py-3 w-[95%] m-auto">
-            <Recomendadas id={id} setLoader={setLoader} type="tv"/>
+            <Creditos id={id} type={`tv`}/>
+            <Recomendadas id={id} setLoader={setLoader} type={`tv`}/>
           </div>
           <Footer />
           {play ? <ModalTrailer id={id} setPlay={setPlay} type={`tv`}/> : undefined}

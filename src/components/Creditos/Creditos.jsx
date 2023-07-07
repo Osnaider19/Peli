@@ -1,14 +1,15 @@
-import { getCreditos } from "./getCreditos";
-import { IMAGE_PAHT_300 } from "../../config/config";
+import { IMAGE_PAHT_200 } from "../../config/config";
 import { useEffect, useRef } from "react";
 import ButtonSlider from "../Main/SlideMovies/ButtonSlider";
 import { handelScrollLeft, handelScrollRigth } from "../../hooks/funtionScroll";
 import { Link } from "react-router-dom";
 import { defaultImg } from "../../config/config";
+import { getCreditos } from "../../hooks/getCreditos";
 
-export function Creditos({ id }) {
-  const Url = `https://api.themoviedb.org/3/movie/${id}/credits?`;
 
+export function Creditos({ id , type }) {
+
+  const Url = `https://api.themoviedb.org/3/${type}/${id}/credits?`;
   const { creditos, error, loader } = getCreditos(Url, id);
   const cast = creditos.cast?.slice(0, 15);
   const refSlider = useRef();
@@ -40,17 +41,18 @@ export function Creditos({ id }) {
               cast.map((actor) => (
                 <li
                   key={actor.id}
-                  className="rounded-xl overflow-hidden min-w-[150px]  md:max-w-[210px] md:min-w-[210px]"
+                  className="rounded-xl overflow-hidden min-w-[150px]  md:max-w-[180px] md:min-w-[180px]"
                 >
                   <Link to={`/person/${actor.id}`}>
                     <img
                       src={
                         actor.profile_path
-                          ? `${IMAGE_PAHT_300 + actor.profile_path}`
+                          ? `${IMAGE_PAHT_200 + actor.profile_path}`
                           : defaultImg
                       }
                       alt={actor.name}
-                      className="block w-full min-h-[200px] min-w-[150px] object-cover md:min-h-[250px] md:max-h-[250px]"
+                      className="block w-full min-h-[200px] min-w-[150px] object-cover md:min-h-[200px] md:max-h-[250px] "
+                      loading="lazy"
                     />
                   </Link>
                   <div>{actor.character}</div>

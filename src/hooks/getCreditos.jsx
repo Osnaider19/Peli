@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { API_KEY } from "../../config/config"; 
+import { API_KEY } from "../config/config"; 
 
 export function getCreditos(url , id) {
   const [creditos, setCreditos] = useState([]);

@@ -1,14 +1,17 @@
-import { FechApi } from "../SlideMovies/FechApi";
 import SlideMovies from "../SlideMovies/SlideMovies";
-
+import { URL } from "../../../config/config";
+import { getData } from "../../../hooks/useGetData";
 
 function Proximos() {
-  
-  const { movies, loandig, error } = FechApi(
-    "https://api.themoviedb.org/3/movie/upcoming?language=es&page=1"
-  );
+  const { data, loandig, error } = getData(`${URL}/movie/upcoming?`);
   return (
-    <SlideMovies title="Proximos estrenos" movies={movies} categoria="movie" loandig={loandig} error={error}/>
+    <SlideMovies
+      title="Proximos"
+      movies={data}
+      categoria="movie"
+      loandig={loandig}
+      error={error}
+    />
   );
 }
 

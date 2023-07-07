@@ -12,6 +12,7 @@ export function getSearch(url, key) {
         const response = await axios.get(url, {
           params: {
             api_key: API_KEY,
+            query: key,
           },
         });
         setData(response.data.results);
@@ -21,8 +22,9 @@ export function getSearch(url, key) {
         setLoader(true);
       }
     };
-    search();
-  }, [url , key]);
 
-  return {data , loader , error}
+    search();
+  }, [url, key]);
+
+  return { data, loader, error };
 }

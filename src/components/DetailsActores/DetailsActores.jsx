@@ -10,6 +10,8 @@ import { convertirFecha } from "../Main/SlideMovies/convertirFecha";
 import { getActorCreditos } from "./getActorCreditos";
 import { Redes } from "./Redes";
 import { calcularEdad } from "../../hooks/calcularEdad";
+import  LoaderDetails from '../Loaders/LoaderDetails';
+
 
 export function DetailsActores() {
   const { id } = useParams();
@@ -20,6 +22,7 @@ export function DetailsActores() {
 
   return (
     <>
+      {loader && <LoaderDetails/>}
       <main className="pt-[90px] text-white">
         <div className="relative w-[95%] m-auto overflow-hidden">
           <div className="flex gap-3 pt-6">

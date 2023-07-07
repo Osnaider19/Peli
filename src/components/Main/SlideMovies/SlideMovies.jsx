@@ -48,6 +48,7 @@ export default function SlideMovies(props) {
                     src={`${IMAGE_PAHT_300 + movie.poster_path}`}
                     alt={movie.title}
                     className="block w-full max-h-[250px] object-cover  hover:scale-105 transition duration-100 md:min-w-[210px]"
+                    loading="lazy"
                   />
                 </div>
               </Link>

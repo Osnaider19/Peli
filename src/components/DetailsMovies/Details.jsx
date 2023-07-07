@@ -4,7 +4,7 @@ import {
   roundedStar,
 } from "../Main/SlideMovies/convertirFecha";
 import { MdOutlineStar } from "react-icons/md";
-import { Creditos } from "./Creditos";
+import { Creditos } from "../Creditos/Creditos";
 import { IMAGE_PAHT } from "../../config/config";
 import { getDetailsMovies } from "./getDetails";
 import { URL } from "../../config/config";
@@ -132,9 +132,13 @@ export function Details() {
                 </div>
               </div>
             </div>
-            <Creditos id={id} />
+
+            
+            <Creditos id={id} type={`movie`}/>
             {play ? <ModalTrailer id={id} setPlay={setPlay} type={`movie`}/> : undefined}
-            <Recomendadas id={id} setLoader={setLoader} />
+            <Recomendadas id={id} setLoader={setLoader} type={`movie`}/>
+
+
             {console.log(details)}
           </div>
           <Footer />
