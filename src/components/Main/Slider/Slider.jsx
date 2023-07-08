@@ -7,18 +7,14 @@ import { getData } from "../../../hooks/useGetData";
 import { URL } from "../../../config/config";
 
 function Slide() {
-  const { data, loandig, error } = getData(`${URL}/movie/popular?`);
+  const { data, loandig, error } = getData(`${URL}/movie/popular`);
   const slider = useRef();
-  const backDrop = {
-    backgroundPosition: "center",
-    backgroundSize: "cover",
-  };
 
   return (
     <div className="hidden relative  m-auto w-[95%] h-[410px]  mr-7 bg-slate-800 rounded-xl overflow-hidden sm:flex">
       <ul
         ref={slider}
-        className="relative  flex snap-x snap-mandatory overflow-hidden  scroll-smooth"
+        className="relative w-full flex  overflow-hidden"
       >
         {data?.slice(0, 1).map((movie) => (
           <li

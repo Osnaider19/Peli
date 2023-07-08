@@ -3,7 +3,6 @@ import SeriesMasValoradas from "./Lo mas valorado/SeriesMasVoloradas";
 import Proximos from "./Proximos/Proximos";
 
 import Slider from "./Slider/Slider";
-
 import TendenciasHoy from "./Tendencias/TendenciasHoy";
 
 function Main() {
@@ -11,8 +10,8 @@ function Main() {
     <main className=" w-[100%] relative pt-[100px] py-2 flex justify-end flex-col">
       <div className="relative w-[100%] ">
         <Slider></Slider>
-        <TendenciasHoy/>
-        <SeriesMasValoradas/>
+        <TendenciasHoy />
+        <SeriesMasValoradas />
         <Cartelera></Cartelera>
         <Proximos></Proximos>
       </div>

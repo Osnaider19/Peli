@@ -1,12 +1,16 @@
 import YouTube from "react-youtube";
 import { getVideos } from "../../hooks/getVideos";
 import { URL } from "../../config/config";
-
+import "./index.css";
+import { LoaderTrailer } from "../Loaders/loaderTrailer";
 export default function ModalTrailer({ type, id, setPlay }) {
-  const { videos, allData } = getVideos(`${URL}/${type}/${id}/videos`);
+  const { videos, allData, loader, error } = getVideos(
+    `${URL}/${type}/${id}/videos`
+  );
 
   return (
     <>
+      
       {videos ? (
         <div className="modal-trailer">
           <button
@@ -15,7 +19,9 @@ export default function ModalTrailer({ type, id, setPlay }) {
               setPlay(false);
             }}
           ></button>
+          
           <div className="relative w-[90%] h-[90%] flex items-center justify-center bg-black">
+          {loader && <LoaderTrailer />} 
             <YouTube
               videoId={videos.key}
               className="relative w-[100%] h-[90%]"
@@ -56,7 +62,7 @@ export default function ModalTrailer({ type, id, setPlay }) {
           </div>
         </div>
         */
-       ''
+        ""
       )}
       {console.log(videos)}
       {console.log(allData)}

@@ -45,7 +45,7 @@ export function Redes({ id }) {
           ""
         )}
       </div>
-      {console.log(actor)}
+      {/*console.log(actor)*/}
     </div>
   );
 }

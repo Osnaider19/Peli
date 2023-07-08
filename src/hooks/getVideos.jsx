@@ -13,7 +13,6 @@ export function getVideos(url) {
         const response = await axios.get(url, {
           params: {
             api_key: API_KEY,
-            //append_to_response : 'videos',
             language : 'es-MX',
           },
         });

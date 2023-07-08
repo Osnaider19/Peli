@@ -15,7 +15,7 @@ function InputSearch() {
 
   return (
     <>
-      {console.log(data)}
+      {/*console.log(data)*/}
       <div className="flex justify-end">
         <div className="relative flex items-center w-[270px] rounded-lg bg-slate-800">
           <i className="text-slate-400 px-3">

@@ -10,8 +10,8 @@ import { convertirFecha } from "../Main/SlideMovies/convertirFecha";
 import { getActorCreditos } from "./getActorCreditos";
 import { Redes } from "./Redes";
 import { calcularEdad } from "../../hooks/calcularEdad";
-import  LoaderDetails from '../Loaders/LoaderDetails';
-
+import LoaderDetails from "../Loaders/LoaderDetails";
+import { useEffect } from "react";
 
 export function DetailsActores() {
   const { id } = useParams();
@@ -20,13 +20,20 @@ export function DetailsActores() {
   );
   const { actor, error, loader } = getActor(`${URL}/person/${id}`);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
-      {loader && <LoaderDetails/>}
+      {loader && <LoaderDetails />}
       <main className="pt-[90px] text-white">
         <div className="relative w-[95%] m-auto overflow-hidden">
           <div className="flex gap-3 pt-6">
-            <div className="relative rounded-lg overflow-hidden min-w-[300px]" key={actor.id}>
+            <div
+              className="relative rounded-lg overflow-hidden min-w-[300px]"
+              key={actor.id}
+            >
               <img
                 src={`${IMAGE_PAHT + actor.profile_path}`}
                 alt={actor.name}
@@ -61,8 +68,8 @@ export function DetailsActores() {
               </div>
             </div>
           </div>
-          {console.log(actor)}
-          {console.log(actorCreditos)}
+          {/*console.log(actor)*/}
+          {/*console.log(actorCreditos)*/}
         </div>
 
         <div className="w-[95%] m-auto">
