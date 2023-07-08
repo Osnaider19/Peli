@@ -1,6 +1,5 @@
 import { AiFillStar } from "react-icons/ai";
 import { convertirFecha } from "../SlideMovies/convertirFecha";
-import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { IMAGE_PAHT_GRANDE } from "../../../config/config";
 import { getData } from "../../../hooks/useGetData";
@@ -8,14 +7,10 @@ import { URL } from "../../../config/config";
 
 function Slide() {
   const { data, loandig, error } = getData(`${URL}/movie/popular`);
-  const slider = useRef();
 
   return (
     <div className="hidden relative  m-auto w-[95%] h-[410px]  mr-7 bg-slate-800 rounded-xl overflow-hidden sm:flex">
-      <ul
-        ref={slider}
-        className="relative w-full flex  overflow-hidden"
-      >
+      <ul className="relative w-full flex  overflow-hidden">
         {data?.slice(0, 1).map((movie) => (
           <li
             key={movie.id}
@@ -71,7 +66,7 @@ function Slide() {
           </li>
         ))}
       </ul>
-      {console.log(data)}
+      {/*console.log(data)*/}
     </div>
   );
 }

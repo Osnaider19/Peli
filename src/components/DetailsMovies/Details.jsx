@@ -139,7 +139,7 @@ export function Details() {
             <Recomendadas id={id} setLoader={setLoader} type={`movie`}/>
 
 
-            {console.log(details)}
+            {/*console.log(details)*/}
           </div>
           <Footer />
         </div>

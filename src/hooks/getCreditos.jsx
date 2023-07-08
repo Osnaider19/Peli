@@ -15,7 +15,6 @@ export function getCreditos(url , id) {
             language : 'es',
           },
         });
-        //const cast = response.data.splice(0 , 20);
         setCreditos(response.data);
         setLoader(false)
       } catch (error) {

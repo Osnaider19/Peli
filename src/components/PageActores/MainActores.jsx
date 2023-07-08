@@ -6,13 +6,11 @@ import { Link } from "react-router-dom";
 import LoaderActores from "./LoaderActores";
 
 export default function MainActores() {
-
   const [page, setPage] = useState(1);
   const { person, loader, error } = getPersonas(
     `${URL}/person/popular?&page=${page}`
   );
 
-  
   return (
     <div>
       {loader && <LoaderActores />}
@@ -35,7 +33,6 @@ export default function MainActores() {
                   alt={actor.name}
                   className="w-[150px] h-[200px]    md:w-[250px] md:h-[280px] object-cover object-left-top"
                 />
-                
               </Link>
               <p className="text-ms font-bold pt-1">{actor.name}</p>
               <div className="truncate">
@@ -47,7 +44,7 @@ export default function MainActores() {
               </div>
             </li>
           ))}
-          {console.log(person)}
+          {/*console.log(person)*/}
         </ul>
         <div className="flex justify-center items-center mt-5">
           <button
@@ -58,10 +55,8 @@ export default function MainActores() {
           >
             Ver Más
           </button>
-          
         </div>
       </div>
     </div>
-    
   );
 }

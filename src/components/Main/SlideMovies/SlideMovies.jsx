@@ -76,7 +76,7 @@ export default function SlideMovies(props) {
               </div>
             </li>
           ))}
-          {console.log(props.movies)}
+          {/*console.log(props.movies)*/}
         </ul>
       </div>
     </div>

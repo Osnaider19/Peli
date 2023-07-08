@@ -19,7 +19,7 @@ export function getVideos(url) {
         if (response.data.results) {
           const trailer = response.data.results.find((video) => video.type ===  "Trailer")
           setVideos(trailer ? trailer : response.data.results[0])
-          {console.log(trailer)}
+          //{console.log(trailer)}
         }
         setAllData(response.data.results);
         setLoader(false)

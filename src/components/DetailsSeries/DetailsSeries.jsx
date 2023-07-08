@@ -35,7 +35,7 @@ export function DetailsSeries() {
       ) : (
         <div>
           <div className="relative pt-[90px] w-[95%] m-auto text-white">
-            {console.log(details)}
+            {/*console.log(details)*/}
             <div className="relative w-full rounded-lg flex flex-col  overflow-hidden md:flex-row md:gap-3">
               <div className="w-full py-4 md:w-auto md:py-0">
                 <div className="overflow-hidden rounded-xl h-[300px] w-[250px] md:min-w-[340px] block md:min-h-[510px] md:max-w-[340px] md:max-h-[510px] z-10">

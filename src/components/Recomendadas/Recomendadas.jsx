@@ -1,16 +1,13 @@
 import { IMAGE_PAHT_300, URL } from "../../config/config";
 import { getData } from "../../hooks/useGetData";
 import { Link } from "react-router-dom";
-import { useEffect, useRef } from "react";
+import {  useRef } from "react";
 export function Recomendadas({ id, setLoader, type }) {
   const Url = URL + `/${type}/${id}/recommendations?`;
   const { data } = getData(Url);
   const refSlider = useRef();
 
-  /*useEffect(() => {
-    //refSlider.current.scrollLeft = 0;
-  }, [id]);
-  */
+  
   return (
     <>
       {data.length === 0 ? (
@@ -48,7 +45,7 @@ export function Recomendadas({ id, setLoader, type }) {
                 </p>
               </li>
             ))}
-            {console.log(data)}
+            {/*console.log(data)*/}
           </ul>
         </div>
       )}

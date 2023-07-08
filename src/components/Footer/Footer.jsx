@@ -1,15 +1,5 @@
-import { BsFacebook  , BsInstagram , BsTwitter , BsGithub} from "react-icons/bs";
+import { BsFacebook, BsInstagram, BsTwitter, BsGithub } from "react-icons/bs";
 function Footer() {
-  /*const [postionFooter , setPositionFooter] = useState("");
-  
-  useEffect(()=>{
-    const pathFooter =  () =>{
-      location.pathname == '/' 
-      ? setPositionFooter("pb-12")
-      : setPositionFooter("pl-52");
-    }
-    pathFooter();
-  }, [postionFooter])*/
   return (
     <footer>
       <div className={"relative w-[95%] pb-12 m-auto text-[#C0E8F0]"}>
@@ -51,16 +41,28 @@ function Footer() {
             <li>
               <h3 className="uppercase font-bold">COMUNIDAD</h3>
               <div className="flex flex-col">
-                <a href="" className="py-1 hover:text-[#C0E8F080] transition-colors duration-100"> 
-                Directrices
+                <a
+                  href=""
+                  className="py-1 hover:text-[#C0E8F080] transition-colors duration-100"
+                >
+                  Directrices
                 </a>
-                <a href="" className="py-1 hover:text-[#C0E8F080] transition-colors duration-100">
+                <a
+                  href=""
+                  className="py-1 hover:text-[#C0E8F080] transition-colors duration-100"
+                >
                   Discusiones
                 </a>
-                <a href="" className="py-1 hover:text-[#C0E8F080] transition-colors duration-100">
+                <a
+                  href=""
+                  className="py-1 hover:text-[#C0E8F080] transition-colors duration-100"
+                >
                   Tabla de clasificación
                 </a>
-                <a href="" className="py-1 hover:text-[#C0E8F080] transition-colors duration-100">
+                <a
+                  href=""
+                  className="py-1 hover:text-[#C0E8F080] transition-colors duration-100"
+                >
                   Twitter
                 </a>
               </div>
@@ -69,16 +71,28 @@ function Footer() {
             <li>
               <h3 className="uppercase font-bold">LEGAL</h3>
               <div className="flex flex-col">
-                <a href="" className="py-1 hover:text-[#C0E8F080] transition-colors duration-100">
+                <a
+                  href=""
+                  className="py-1 hover:text-[#C0E8F080] transition-colors duration-100"
+                >
                   Términos de uso
                 </a>
-                <a href="" className="py-1 hover:text-[#C0E8F080] transition-colors duration-100">
+                <a
+                  href=""
+                  className="py-1 hover:text-[#C0E8F080] transition-colors duration-100"
+                >
                   Términos de uso de la API
                 </a>
-                <a href="" className="py-1 hover:text-[#C0E8F080] transition-colors duration-100">
+                <a
+                  href=""
+                  className="py-1 hover:text-[#C0E8F080] transition-colors duration-100"
+                >
                   Política de privacidad
                 </a>
-                <a href="" className="py-1 hover:text-[#C0E8F080] transition-colors duration-100">
+                <a
+                  href=""
+                  className="py-1 hover:text-[#C0E8F080] transition-colors duration-100"
+                >
                   Preferencias de cookies
                 </a>
               </div>
@@ -114,7 +128,6 @@ function Footer() {
         </div>
         <p className="text-center py-6">&copy; 2023 Movie.tv</p>
       </div>
-      {console.log(location.pathname)}
     </footer>
   );
 }

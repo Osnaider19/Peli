@@ -67,8 +67,8 @@ export function Creditos({ id , type }) {
             </div>
           </ul>
         </div>
-        {console.log(creditos)}
-        {console.log(id)}
+        {/*console.log(creditos)*/}
+        
       </div>
     </>
   );

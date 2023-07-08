@@ -13,7 +13,7 @@ export function getData(url) {
         const response = await axios.get(url, {
           params: {
             api_key: API_KEY,
-            language : 'es',
+            language : 'es-MX',
           },
         });
         setData(response.data.results);

@@ -22,7 +22,6 @@ import { API_KEY } from "../../config/config";
           setLoader(true);
         }
       };
-      {console.log(categorias)}
       getCategorias();
     }, []);
 
