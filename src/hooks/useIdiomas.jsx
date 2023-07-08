@@ -1,3 +1,5 @@
+
+//funcion para los acronimos de los algunos ideomas 
 export function acronimoAIdioma(acronimo) {
     let idiomas = {
       es: "español",

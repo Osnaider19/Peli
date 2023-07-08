@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { API_KEY } from "../config/config";
 
 export function getData(url) {
-  const API_KEY = "b62c5015964d4fcc4805e0ce64dfd3c4";
   const [data, setData] = useState([]);
   const [loandig, setLoanding] = useState(true);
   const [error, setError] = useState(null);

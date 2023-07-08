@@ -1,13 +1,11 @@
 import SlideMovies from "../SlideMovies/SlideMovies";
-import { GetMoviesTendecias } from "./GetMoviesTendencias"; 
-
-
+import { getData } from "../../../hooks/useGetData";
+import { URL } from "../../../config/config";
 
 function TendenciasSemana() {
-    const {movies , loandig , error } = GetMoviesTendecias('https://api.themoviedb.org/3/trending/all/week?language=es')
-    
-    return <SlideMovies movies={movies} loandig={loandig} error={error}/>
-}
+  const { data, loandig, error } = getData(`${URL}/trending/all/week?`);
 
+  return <SlideMovies movies={data} loandig={loandig} error={error} />;
+}
 
 export default TendenciasSemana;
