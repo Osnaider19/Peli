@@ -46,7 +46,7 @@ export default function SlideMovies(props) {
                 <div className="relative w-full min-h-[225px] overflow-hidden md:min-w-[210px]">
                   <img
                     src={`${IMAGE_PAHT_300 + movie.poster_path}`}
-                    alt={movie.title}
+                    alt={movie.title ? movie.title : movie.name} 
                     className="block w-full max-h-[250px] object-cover  hover:scale-105 transition duration-100 md:min-w-[210px]"
                     loading="lazy"
                   />

@@ -44,7 +44,7 @@ function Header() {
         className="fixed justify-start z-[9999] bg-[#0f172a] top-[70px] -left-[400px]  px-3  h-full transition-all duration-300 md:relative md:left-0 md:flex md:top-0"
         ref={menu}
       >
-        <Menu></Menu>
+      <Menu handelClickButtonMenu={handelClickButtonMenu}></Menu>
       </div>
       <InputSearch></InputSearch>
     </header>

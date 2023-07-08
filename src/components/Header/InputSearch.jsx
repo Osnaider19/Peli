@@ -25,7 +25,7 @@ function InputSearch() {
             type="text"
             autoComplete="off"
             placeholder="Buscar Películas , Series o Actor"
-            className="flex items-center py-2  w-40 justify-center outline-none h-8 bg-transparent text-slate-400 text-sm md:w-56"
+            className="flex items-center py-2  w-full justify-center outline-none h-8 bg-transparent text-slate-400 text-sm md:w-56"
             onChange={(e) => {
               setKey(e.target.value), setEstateSearch(true);
             }}

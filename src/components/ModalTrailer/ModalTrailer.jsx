@@ -10,16 +10,15 @@ export default function ModalTrailer({ type, id, setPlay }) {
 
   return (
     <>
-      {videos ? (
-        <div className="modal-trailer">
-          <button
-            className="boton-cerrar-modal"
-            onClick={() => {
-              setPlay(false);
-            }}
-          ></button>
-
-          <div className="relative w-[90%] h-[90%] flex items-center justify-center bg-black">
+      <div className="modal-trailer">
+        <button
+          className="boton-cerrar-modal"
+          onClick={() => {
+            setPlay(false);
+          }}
+        ></button>
+        {videos ? (
+          <div className="relative w-full h-full md:w-[90%] md:h-[90%] flex items-center justify-center bg-black">
             {loader && <LoaderTrailer />}
             <YouTube
               videoId={videos.key}
@@ -34,10 +33,14 @@ export default function ModalTrailer({ type, id, setPlay }) {
               }}
             />
           </div>
-        </div>
-      ) : (
-        ""
-      )}
+        ) : (
+          <div className="px-4 md:px-4">
+            <p className="text-white font-bold  uppercase text-center text-2xl md:text-5xl">
+              Lo sentimos Trailer no disponible por el momento se esta trabajando el ello
+            </p>
+          </div>
+        )}
+      </div>
       {/*console.log(videos)*/}
       {/*console.log(allData)*/}
     </>

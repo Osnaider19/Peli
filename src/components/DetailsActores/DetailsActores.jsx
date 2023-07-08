@@ -11,6 +11,7 @@ import { getActorCreditos } from "./getActorCreditos";
 import { Redes } from "./Redes";
 import { calcularEdad } from "../../hooks/calcularEdad";
 import LoaderDetails from "../Loaders/LoaderDetails";
+import Footer from "../Footer/Footer";
 import { useEffect } from "react";
 
 export function DetailsActores() {
@@ -29,16 +30,18 @@ export function DetailsActores() {
       {loader && <LoaderDetails />}
       <main className="pt-[90px] text-white">
         <div className="relative w-[95%] m-auto overflow-hidden">
-          <div className="flex gap-3 pt-6">
+          <div className="flex gap-3 flex-col pt-6 md:flex-row">
             <div
-              className="relative rounded-lg overflow-hidden min-w-[300px]"
+              className="relative rounded-lg overflow-hidden min-w-[300px] max-w-[300px]"
               key={actor.id}
             >
-              <img
-                src={`${IMAGE_PAHT + actor.profile_path}`}
-                alt={actor.name}
-                className="min-w-[300px] h-[450px]"
-              />
+              <div className="rounded-lg overflow-hidden w-[250px] h-[300px] md:min-w-[300px] md:h-[450px]">
+                <img
+                  src={`${IMAGE_PAHT + actor.profile_path}`}
+                  alt={actor.name}
+                  className="w-[250px] h-[300px] md:min-w-[300px] md:h-[450px] object-cover"
+                />
+              </div>
               <div>
                 <Redes id={id} />
               </div>
@@ -74,7 +77,7 @@ export function DetailsActores() {
 
         <div className="w-[95%] m-auto">
           <h2 className="font-bold text-xl py-3">Interpretaciones </h2>
-          <ul className="relative flex  w-full px-1 flex-wrap gap-2">
+          <ul className="relative flex  w-full px-1 justify-center flex-wrap gap-2 md:justify-start">
             {actorCreditos.cast
               ? actorCreditos.cast.map((castMovie) => (
                   <li
@@ -107,12 +110,14 @@ export function DetailsActores() {
                     ) : (
                       ""
                     )}
+                   
                   </li>
                 ))
               : ""}
           </ul>
         </div>
       </main>
+      <Footer/>
     </>
   );
 }
