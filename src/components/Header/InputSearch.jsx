@@ -85,7 +85,7 @@ function InputSearch() {
                       </div>
                     ) : undefined}
                   </div>
-                  <p>
+                  <div>
                     {object.media_type === "person" ? (
                       <div className="h-full relative flex justify-center items-center">
                         <i className="px-3">
@@ -94,7 +94,7 @@ function InputSearch() {
                         <p>Actor</p>
                       </div>
                     ) : undefined}
-                  </p>
+                  </div>
                 </div>
               </Link>
             ))}

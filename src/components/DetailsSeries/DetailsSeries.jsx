@@ -25,7 +25,7 @@ export function DetailsSeries() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [Url]);
 
   return (
     <>

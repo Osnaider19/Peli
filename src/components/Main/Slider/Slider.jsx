@@ -1,7 +1,7 @@
 import { AiFillStar } from "react-icons/ai";
 import { convertirFecha } from "../SlideMovies/convertirFecha";
 import { Link } from "react-router-dom";
-import { IMAGE_PAHT_GRANDE } from "../../../config/config";
+import { IMAGE_PAHT_1900 } from "../../../config/config";
 import { getData } from "../../../hooks/useGetData";
 import { URL } from "../../../config/config";
 
@@ -21,7 +21,7 @@ function Slide() {
             <div
               style={{
                 backgroundImage: `url(${
-                  IMAGE_PAHT_GRANDE + movie.backdrop_path
+                  IMAGE_PAHT_1900 + movie.backdrop_path
                 })`,
                 backgroundPosition: "center , top",
                 backgroundSize: "cover",

@@ -36,7 +36,7 @@ export default function ModalTrailer({ type, id, setPlay }) {
         ) : (
           <div className="px-4 md:px-4">
             <p className="text-white font-bold  uppercase text-center text-2xl md:text-5xl">
-              Lo sentimos Trailer no disponible por el momento se esta trabajando el ello
+              Lo sentimos Trailer no disponible por el momento
             </p>
           </div>
         )}

@@ -137,7 +137,7 @@ export function Details() {
             <Creditos id={id} type={`movie`}/>
             {play ? <ModalTrailer id={id} setPlay={setPlay} type={`movie`}/> : undefined}
             <Recomendadas id={id} setLoader={setLoader} type={`movie`}/>
-
+            
 
             {/*console.log(details)*/}
           </div>
